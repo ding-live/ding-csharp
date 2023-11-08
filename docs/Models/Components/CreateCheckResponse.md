@@ -1,0 +1,9 @@
+# CreateCheckResponse
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       | Example                                                                           |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `AuthenticationUuid`                                                              | *string*                                                                          | :heavy_minus_sign:                                                                | The UUID of the corresponding authentication.                                     |                                                                                   |
+| `Status`                                                                          | [CreateCheckResponseStatus](../../Models/Components/CreateCheckResponseStatus.md) | :heavy_minus_sign:                                                                | A status representing the result of the check.                                    | valid                                                                             |
