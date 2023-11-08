@@ -1,0 +1,17 @@
+configVersion: 1.0.0
+generation:
+  comments:
+    disableComments: false
+    omitDescriptionIfSummaryPresent: false
+  baseServerURL: ""
+  flattenGlobalSecurity: true
+  repoURL: https://github.com/ding-live/ding-typescript.git
+  sdkClassName: Ding
+  singleTagPerOp: false
+  tagNamespacingDisabled: false
+csharp:
+  version: 0.0.1
+  author: Ding
+  dotnetVersion: net5.0
+  maxMethodParams: 4
+  packageName: DingSDK
