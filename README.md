@@ -15,8 +15,10 @@ dotnet add package DingSDK
 ## SDK Example Usage
 
 <!-- Start SDK Example Usage -->
-## Send a code
+### Send a code
+
 Send an OTP code to a user's phone number.
+
 
 ```csharp
 using DingSDK;
@@ -28,17 +30,18 @@ var sdk = new Ding(
     }
 );
 
-var res = await sdk.Otp.CreateAutenticationAsync(new CreateAuthenticationRequest() {
-    CustomerUuid = "eae192ab-9e1e-4b21-b5b1-bfcb79a32fcc",
+var res = await sdk.Otp.SendAsync(new CreateAuthenticationRequest() {
+    CustomerUuid = "82779012-9667-4917-8532-b94017ce3f0f",
     PhoneNumber = "+1234567890",
 });
 
 // handle response
 ```
 
+### Check a code
 
-## Check a code
 Check that a code entered by a user is valid.
+
 
 ```csharp
 using DingSDK;
@@ -59,9 +62,10 @@ var res = await sdk.Otp.CheckAsync(new CreateCheckRequest() {
 // handle response
 ```
 
+### Retry an authentication
 
-## Retry an authentication
 Retry an authentication if a user has not received the code.
+
 
 ```csharp
 using DingSDK;
@@ -89,8 +93,8 @@ var res = await sdk.Otp.RetryAsync(new RetryAuthenticationRequest() {
 ### [Otp](docs/sdks/otp/README.md)
 
 * [Check](docs/sdks/otp/README.md#check) - Check an authentication code
-* [CreateAutentication](docs/sdks/otp/README.md#createautentication) - Create an authentication
 * [Retry](docs/sdks/otp/README.md#retry) - Retry an authentication
+* [Send](docs/sdks/otp/README.md#send) - Create an authentication
 
 ### [Lookup](docs/sdks/lookup/README.md)
 
