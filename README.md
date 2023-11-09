@@ -30,8 +30,8 @@ var sdk = new Ding(
     }
 );
 
-var res = await sdk.Otp.SendAsync(new CreateAuthenticationRequest() {
-    CustomerUuid = "82779012-9667-4917-8532-b94017ce3f0f",
+var res = await sdk.Otp.CreateAutenticationAsync(new CreateAuthenticationRequest() {
+    CustomerUuid = "eae192ab-9e1e-4b21-b5b1-bfcb79a32fcc",
     PhoneNumber = "+1234567890",
 });
 
@@ -93,8 +93,8 @@ var res = await sdk.Otp.RetryAsync(new RetryAuthenticationRequest() {
 ### [Otp](docs/sdks/otp/README.md)
 
 * [Check](docs/sdks/otp/README.md#check) - Check an authentication code
+* [CreateAutentication](docs/sdks/otp/README.md#createautentication) - Create an authentication
 * [Retry](docs/sdks/otp/README.md#retry) - Retry an authentication
-* [Send](docs/sdks/otp/README.md#send) - Create an authentication
 
 ### [Lookup](docs/sdks/lookup/README.md)
 

@@ -8,8 +8,8 @@ Send OTP codes to your users using their phone numbers.
 ### Available Operations
 
 * [Check](#check) - Check an authentication code
+* [CreateAutentication](#createautentication) - Create an authentication
 * [Retry](#retry) - Retry an authentication
-* [Send](#send) - Create an authentication
 
 ## Check
 
@@ -48,6 +48,42 @@ var res = await sdk.Otp.CheckAsync(new CreateCheckRequest() {
 **[CheckResponse](../../Models/Requests/CheckResponse.md)**
 
 
+## CreateAutentication
+
+Create an authentication
+
+### Example Usage
+
+```csharp
+using DingSDK;
+using DingSDK.Models.Components;
+
+var sdk = new Ding(
+    security: new Security() {
+        APIKey = "YOUR_API_KEY",
+    }
+);
+
+var res = await sdk.Otp.CreateAutenticationAsync(new CreateAuthenticationRequest() {
+    CustomerUuid = "eae192ab-9e1e-4b21-b5b1-bfcb79a32fcc",
+    PhoneNumber = "+1234567890",
+});
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `request`                                                                             | [CreateAuthenticationRequest](../../Models/Components/CreateAuthenticationRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
+
+
+### Response
+
+**[CreateAutenticationResponse](../../Models/Requests/CreateAutenticationResponse.md)**
+
+
 ## Retry
 
 Retry an authentication
@@ -82,40 +118,4 @@ var res = await sdk.Otp.RetryAsync(new RetryAuthenticationRequest() {
 ### Response
 
 **[RetryResponse](../../Models/Requests/RetryResponse.md)**
-
-
-## Send
-
-Create an authentication
-
-### Example Usage
-
-```csharp
-using DingSDK;
-using DingSDK.Models.Components;
-
-var sdk = new Ding(
-    security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    }
-);
-
-var res = await sdk.Otp.SendAsync(new CreateAuthenticationRequest() {
-    CustomerUuid = "82779012-9667-4917-8532-b94017ce3f0f",
-    PhoneNumber = "+1234567890",
-});
-
-// handle response
-```
-
-### Parameters
-
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `request`                                                                             | [CreateAuthenticationRequest](../../Models/Components/CreateAuthenticationRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
-
-
-### Response
-
-**[CreateAutenticationResponse](../../Models/Requests/CreateAutenticationResponse.md)**
 
