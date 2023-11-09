@@ -1,5 +1,11 @@
 name: Release Ding library
 "on":
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Force publication of SDK
+        type: boolean
+        default: false
   push:
     paths:
       - ./RELEASES.md
