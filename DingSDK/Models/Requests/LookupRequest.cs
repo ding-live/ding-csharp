@@ -10,7 +10,6 @@
 #nullable enable
 namespace DingSDK.Models.Requests
 {
-    using DingSDK.Models.Components;
     using DingSDK.Utils;
     
     public class LookupRequest
@@ -19,7 +18,7 @@ namespace DingSDK.Models.Requests
         [SpeakeasyMetadata("header:style=simple,explode=false,name=customer-uuid")]
         public string CustomerUuid { get; set; } = default!;
 
-        [SpeakeasyMetadata("request:mediaType=application/json")]
-        public Models.Components.LookupRequest? LookupRequestValue { get; set; }
+        [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=phone_number")]
+        public string PhoneNumber { get; set; } = default!;
     }
 }

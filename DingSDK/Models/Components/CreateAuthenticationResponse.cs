@@ -35,7 +35,14 @@ namespace DingSDK.Models.Components
         public DateTime? ExpiresAt { get; set; }
 
         /// <summary>
-        /// The status of the authentication.
+        /// The status of the authentication. Possible values are:<br/>
+        /// 
+        /// <remarks>
+        ///   * `pending` - The OTP code is being sent.<br/>
+        ///   * `rate_limited` - This user is rate-limited and cannot receive another code.<br/>
+        ///   * `spam_detected` - This attempt is flagged as spam. Go to the dashboard for more details.<br/>
+        /// 
+        /// </remarks>
         /// </summary>
         [JsonProperty("status")]
         public Status? Status { get; set; }

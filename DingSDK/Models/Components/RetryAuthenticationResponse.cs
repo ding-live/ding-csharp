@@ -38,7 +38,17 @@ namespace DingSDK.Models.Components
         public long? RemainingRetry { get; set; }
 
         /// <summary>
-        /// The status of the authentication.
+        /// The status of the retry. Possible values are:<br/>
+        /// 
+        /// <remarks>
+        ///   * `approved` - The retry was approved and a new code was sent.<br/>
+        ///   * `denied` - The retry was denied.<br/>
+        ///   * `no_attempt` - No attempt was sent yet so we cannot perform a retry.<br/>
+        ///   * `rate_limited` - The authentication was rate limited and cannot be retried.<br/>
+        ///   * `expired_auth` - The authentication has expired and cannot be retried.<br/>
+        ///   * `already_validated` - The authentication has already been validated.<br/>
+        /// 
+        /// </remarks>
         /// </summary>
         [JsonProperty("status")]
         public RetryAuthenticationResponseStatus? Status { get; set; }

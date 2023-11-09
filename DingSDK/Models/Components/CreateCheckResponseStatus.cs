@@ -14,7 +14,17 @@ namespace DingSDK.Models.Components
     using System;
     
     /// <summary>
-    /// A status representing the result of the check.
+    /// The status of the check. Possible values are:<br/>
+    /// 
+    /// <remarks>
+    ///   * `valid` - The code is valid.<br/>
+    ///   * `invalid` - The code is invalid.<br/>
+    ///   * `without_attempt` - No attempt was sent yet so we cannot perform a check.<br/>
+    ///   * `rate_limited` - The authentication was rate limited and cannot be checked.<br/>
+    ///   * `already_validated` - The authentication has already been validated.<br/>
+    ///   * `expired_auth` - The authentication has expired and cannot be checked.<br/>
+    /// 
+    /// </remarks>
     /// </summary>
     public enum CreateCheckResponseStatus
     {

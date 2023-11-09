@@ -7,11 +7,11 @@ Retrieve up-to-date metadata about a specific phone number
 
 ### Available Operations
 
-* [Lookup](#lookup) - Lookup a phone number
+* [Lookup](#lookup) - Lookup a number
 
 ## Lookup
 
-Lookup a phone number
+Lookup a number
 
 ### Example Usage
 
@@ -26,19 +26,17 @@ var sdk = new Ding(
     }
 );
 
-var res = await sdk.Lookup.LookupAsync("6e93aa15-9177-4d09-8395-b69ce50db1c8", new Models.Components.LookupRequest() {
-    PhoneNumber = "+1234567890",
-});
+var res = await sdk.Lookup.LookupAsync("6e93aa15-9177-4d09-8395-b69ce50db1c8", "string");
 
 // handle response
 ```
 
 ### Parameters
 
-| Parameter                                                                   | Type                                                                        | Required                                                                    | Description                                                                 |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `CustomerUuid`                                                              | *string*                                                                    | :heavy_check_mark:                                                          | N/A                                                                         |
-| `LookupRequest`                                                             | [Models.Components.LookupRequest](../../Models/Components/LookupRequest.md) | :heavy_minus_sign:                                                          | N/A                                                                         |
+| Parameter          | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `CustomerUuid`     | *string*           | :heavy_check_mark: | N/A                |
+| `PhoneNumber`      | *string*           | :heavy_check_mark: | N/A                |
 
 
 ### Response

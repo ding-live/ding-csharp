@@ -26,9 +26,9 @@ namespace DingSDK
     {
 
         /// <summary>
-        /// Lookup a phone number
+        /// Lookup a number
         /// </summary>
-        Task<Models.Requests.LookupResponse> LookupAsync(string customerUuid, Models.Components.LookupRequest? lookupRequest = null);
+        Task<Models.Requests.LookupResponse> LookupAsync(string customerUuid, string phoneNumber);
     }
 
     /// <summary>
@@ -38,10 +38,10 @@ namespace DingSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.2";
-        private const string _sdkGenVersion = "2.187.2";
+        private const string _sdkVersion = "0.2.3";
+        private const string _sdkGenVersion = "2.187.4";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.2 2.187.2 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.2.3 2.187.4 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -55,30 +55,25 @@ namespace DingSDK
         }
         
 
-        public async Task<Models.Requests.LookupResponse> LookupAsync(string customerUuid, Models.Components.LookupRequest? lookupRequest = null)
+        public async Task<Models.Requests.LookupResponse> LookupAsync(string customerUuid, string phoneNumber)
         {
-            var request = new Models.Requests.LookupRequest()
+            var request = new LookupRequest()
             {
                 CustomerUuid = customerUuid,
-                LookupRequestValue = lookupRequest,
+                PhoneNumber = phoneNumber,
             };
             string baseUrl = _serverUrl;
             if (baseUrl.EndsWith("/"))
             {
                 baseUrl = baseUrl.Substring(0, baseUrl.Length - 1);
             }
-            var urlString = baseUrl + "/lookup";
+            var urlString = URLBuilder.Build(baseUrl, "/lookup/{phone_number}", request);
             
 
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
             
-            var serializedBody = RequestBodySerializer.Serialize(request, "LookupRequestValue", "json");
-            if (serializedBody != null)
-            {
-                httpRequest.Content = serializedBody;
-            }
             
             var client = _securityClient;
             

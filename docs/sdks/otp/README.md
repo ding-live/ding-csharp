@@ -7,13 +7,13 @@ Send OTP codes to your users using their phone numbers.
 
 ### Available Operations
 
-* [Check](#check) - Check an authentication code
-* [CreateAutentication](#createautentication) - Create an authentication
-* [Retry](#retry) - Retry an authentication
+* [Check](#check) - Check a code
+* [CreateAutentication](#createautentication) - Send a code
+* [Retry](#retry) - Perform a retry
 
 ## Check
 
-Check an authentication code
+Check a code
 
 ### Example Usage
 
@@ -50,7 +50,7 @@ var res = await sdk.Otp.CheckAsync(new CreateCheckRequest() {
 
 ## CreateAutentication
 
-Create an authentication
+Send a code
 
 ### Example Usage
 
@@ -86,7 +86,7 @@ var res = await sdk.Otp.CreateAutenticationAsync(new CreateAuthenticationRequest
 
 ## Retry
 
-Retry an authentication
+Perform a retry
 
 ### Example Usage
 

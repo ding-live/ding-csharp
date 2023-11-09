@@ -26,17 +26,17 @@ namespace DingSDK
     {
 
         /// <summary>
-        /// Check an authentication code
+        /// Check a code
         /// </summary>
         Task<CheckResponse> CheckAsync(CreateCheckRequest? request = null);
 
         /// <summary>
-        /// Create an authentication
+        /// Send a code
         /// </summary>
         Task<CreateAutenticationResponse> CreateAutenticationAsync(CreateAuthenticationRequest? request = null);
 
         /// <summary>
-        /// Retry an authentication
+        /// Perform a retry
         /// </summary>
         Task<RetryResponse> RetryAsync(RetryAuthenticationRequest? request = null);
     }
@@ -48,10 +48,10 @@ namespace DingSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.2";
-        private const string _sdkGenVersion = "2.187.2";
+        private const string _sdkVersion = "0.2.3";
+        private const string _sdkGenVersion = "2.187.4";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.2 2.187.2 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.2.3 2.187.4 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
