@@ -3,23 +3,19 @@
 The Ding C# library provides convenient access to the Ding API from applications written in C#.
 
 <!-- Start SDK Installation -->
+## SDK Installation
 
-# SDK Installation
-
-## Nuget
+### Nuget
 
 ```bash
 dotnet add package DingSDK
 ```
-
 <!-- End SDK Installation -->
 
 ## SDK Example Usage
 
 <!-- Start SDK Example Usage -->
-
-# Send a code
-
+## Send a code
 Send an OTP code to a user's phone number.
 
 ```csharp
@@ -40,8 +36,8 @@ var res = await sdk.Otp.CreateAutenticationAsync(new CreateAuthenticationRequest
 // handle response
 ```
 
-# Check a code
 
+## Check a code
 Check that a code entered by a user is valid.
 
 ```csharp
@@ -63,8 +59,8 @@ var res = await sdk.Otp.CheckAsync(new CreateCheckRequest() {
 // handle response
 ```
 
-# Retry an authentication
 
+## Retry an authentication
 Retry an authentication if a user has not received the code.
 
 ```csharp
@@ -84,22 +80,21 @@ var res = await sdk.Otp.RetryAsync(new RetryAuthenticationRequest() {
 
 // handle response
 ```
-
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
+## Available Resources and Operations
 
-# Available Resources and Operations
 
-## [Otp](docs/sdks/otp/README.md)
+### [Otp](docs/sdks/otp/README.md)
 
-- [Check](docs/sdks/otp/README.md#check) - Check an authentication code
-- [CreateAutentication](docs/sdks/otp/README.md#createautentication) - Create an authentication
-- [Retry](docs/sdks/otp/README.md#retry) - Retry an authentication
+* [Check](docs/sdks/otp/README.md#check) - Check an authentication code
+* [CreateAutentication](docs/sdks/otp/README.md#createautentication) - Create an authentication
+* [Retry](docs/sdks/otp/README.md#retry) - Retry an authentication
 
-## [Lookup](docs/sdks/lookup/README.md)
+### [Lookup](docs/sdks/lookup/README.md)
 
-- [Lookup](docs/sdks/lookup/README.md#lookup) - Lookup a phone number
+* [Lookup](docs/sdks/lookup/README.md#lookup) - Lookup a phone number
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->
