@@ -26,7 +26,7 @@ namespace DingSDK
     {
 
         /// <summary>
-        /// Lookup a number
+        /// Perform a phone number lookup
         /// </summary>
         Task<Models.Requests.LookupResponse> LookupAsync(string customerUuid, string phoneNumber);
     }
@@ -38,10 +38,10 @@ namespace DingSDK
     {
         public SDKConfig Config { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.4";
-        private const string _sdkGenVersion = "2.187.7";
+        private const string _sdkVersion = "0.2.5";
+        private const string _sdkGenVersion = "2.188.3";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.4 2.187.7 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.2.5 2.188.3 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

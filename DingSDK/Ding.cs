@@ -18,7 +18,7 @@ namespace DingSDK
     using System;
 
     /// <summary>
-    /// Ding: The OTP API allows you to send authentication codes to your users using their phone numbers
+    /// Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
     /// </summary>
     public interface IDing
     {
@@ -39,7 +39,7 @@ namespace DingSDK
     }
 
     /// <summary>
-    /// Ding: The OTP API allows you to send authentication codes to your users using their phone numbers
+    /// Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
     /// </summary>
     public class Ding: IDing
     {
@@ -50,10 +50,10 @@ namespace DingSDK
         };
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.2.4";
-        private const string _sdkGenVersion = "2.187.7";
+        private const string _sdkVersion = "0.2.5";
+        private const string _sdkGenVersion = "2.188.3";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.2.4 2.187.7 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.2.5 2.188.3 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;

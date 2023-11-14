@@ -22,7 +22,7 @@ namespace DingSDK.Models.Components
         public string? AppRealm { get; set; }
 
         /// <summary>
-        /// The version of your app.
+        /// The version of your application.
         /// </summary>
         [JsonProperty("app_version")]
         public string? AppVersion { get; set; }
@@ -40,7 +40,7 @@ namespace DingSDK.Models.Components
         public string CustomerUuid { get; set; } = default!;
 
         /// <summary>
-        /// Unique identifier for the user&apos;s device. For Android, this corresponds to the ANDROID_ID and for iOS, this corresponds to the identifierForVendor.
+        /// Unique identifier for the user&apos;s device. For Android, this corresponds to the `ANDROID_ID` and for iOS, this corresponds to the `identifierForVendor`.
         /// </summary>
         [JsonProperty("device_id")]
         public string? DeviceId { get; set; }
@@ -70,7 +70,7 @@ namespace DingSDK.Models.Components
         public bool? IsReturningUser { get; set; }
 
         /// <summary>
-        /// The version of the user&apos;s operating system.
+        /// The version of the user&apos;s device operating system.
         /// </summary>
         [JsonProperty("os_version")]
         public string? OsVersion { get; set; }

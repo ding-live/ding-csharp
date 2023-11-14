@@ -98,7 +98,7 @@ var res = await sdk.Otp.RetryAsync(new RetryAuthenticationRequest() {
 
 ### [Lookup](docs/sdks/lookup/README.md)
 
-* [Lookup](docs/sdks/lookup/README.md#lookup) - Lookup a number
+* [Lookup](docs/sdks/lookup/README.md#lookup) - Perform a phone number lookup
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->
