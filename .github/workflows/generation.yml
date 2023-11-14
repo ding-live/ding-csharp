@@ -17,6 +17,7 @@ jobs:
   generate:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-generation.yaml@v14
     with:
+      publish: true
       force: ${{ github.event.inputs.force }}
       languages: |
         - csharp
