@@ -36,12 +36,12 @@ namespace DingSDK
     /// </summary>
     public class Lookup: ILookup
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.1";
-        private const string _sdkGenVersion = "2.194.1";
+        private const string _sdkVersion = "0.6.2";
+        private const string _sdkGenVersion = "2.205.0";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.6.1 2.194.1 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.6.2 2.205.0 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -51,7 +51,7 @@ namespace DingSDK
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
@@ -62,7 +62,7 @@ namespace DingSDK
                 CustomerUuid = customerUuid,
                 PhoneNumber = phoneNumber,
             };
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lookup/{phone_number}", request);
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);

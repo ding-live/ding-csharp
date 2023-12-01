@@ -46,12 +46,12 @@ namespace DingSDK
     /// </summary>
     public class Otp: IOtp
     {
-        public SDKConfig Config { get; private set; }
+        public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.6.1";
-        private const string _sdkGenVersion = "2.194.1";
+        private const string _sdkVersion = "0.6.2";
+        private const string _sdkGenVersion = "2.205.0";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.6.1 2.194.1 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.6.2 2.205.0 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private ISpeakeasyHttpClient _securityClient;
@@ -61,13 +61,13 @@ namespace DingSDK
             _defaultClient = defaultClient;
             _securityClient = securityClient;
             _serverUrl = serverUrl;
-            Config = config;
+            SDKConfiguration = config;
         }
         
 
         public async Task<CheckResponse> CheckAsync(CreateCheckRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/check";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -116,7 +116,7 @@ namespace DingSDK
 
         public async Task<CreateAutenticationResponse> CreateAutenticationAsync(CreateAuthenticationRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/authentication";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
@@ -165,7 +165,7 @@ namespace DingSDK
 
         public async Task<RetryResponse> RetryAsync(RetryAuthenticationRequest? request = null)
         {
-            string baseUrl = this.Config.GetTemplatedServerDetails();
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = baseUrl + "/retry";
             
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);

@@ -23,10 +23,9 @@ using DingSDK.Models.Requests;
 var sdk = new Ding(
     security: new Security() {
         APIKey = "YOUR_API_KEY",
-    }
-);
+    });
 
-var res = await sdk.Lookup.LookupAsync("6e93aa15-9177-4d09-8395-b69ce50db1c8", "string");
+var res = await sdk.Lookup.LookupAsync(CustomerUuid: "6e93aa15-9177-4d09-8395-b69ce50db1c8", PhoneNumber: "string");
 
 // handle response
 ```

@@ -35,7 +35,6 @@ DingSDK/Models/Components/RetryAuthenticationRequest.cs
 DingSDK/Models/Components/LineType.cs
 DingSDK/Models/Components/LookupResponse.cs
 DingSDK/Models/Components/Security.cs
-USAGE.md
 docs/Models/Requests/CheckResponse.md
 docs/Models/Requests/CreateAutenticationResponse.md
 docs/Models/Requests/RetryResponse.md
@@ -59,4 +58,5 @@ docs/Models/Components/Security.md
 docs/sdks/ding/README.md
 docs/sdks/otp/README.md
 docs/sdks/lookup/README.md
+USAGE.md
 .gitattributes
