@@ -17,23 +17,6 @@ dotnet add package DingSDK
 <!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
 
-### Example 1
-
-```csharp
-using DingSDK;
-using DingSDK.Models.Components;
-using DingSDK.Models.Requests;
-
-var sdk = new Ding(
-    security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
-
-var res = await sdk.Lookup.LookupAsync(CustomerUuid: "6e93aa15-9177-4d09-8395-b69ce50db1c8", PhoneNumber: "string");
-
-// handle response
-```
-
 ### Send a code
 
 Send an OTP code to a user's phone number.
