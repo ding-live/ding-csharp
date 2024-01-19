@@ -4,18 +4,18 @@ management:
   docChecksum: 5e4ef027bc51f54368e8b1607b77c098
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.225.2
-  releaseVersion: 0.7.0
-  configChecksum: d2b1de074685c0f57ee427f0c5271bb1
+  generationVersion: 2.237.2
+  releaseVersion: 0.7.1
+  configChecksum: a72fe7dd5674374e3de2b364ac25fe95
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.3.0
+    core: 3.3.1
     examples: 2.81.3
     flattening: 2.81.1
-    globalSecurity: 2.81.2
+    globalSecurity: 2.81.3
     globalServerURLs: 2.82.2
     serverIDs: 2.82.0
 generatedFiles:
