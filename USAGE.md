@@ -8,8 +8,7 @@ Send an OTP code to a user's phone number.
 using DingSDK;
 using DingSDK.Models.Components;
 
-var sdk = new Ding(
-    security: new Security() {
+var sdk = new Ding(security: new Security() {
         APIKey = "YOUR_API_KEY",
     });
 
@@ -32,8 +31,7 @@ Check that a code entered by a user is valid.
 using DingSDK;
 using DingSDK.Models.Components;
 
-var sdk = new Ding(
-    security: new Security() {
+var sdk = new Ding(security: new Security() {
         APIKey = "YOUR_API_KEY",
     });
 
@@ -57,8 +55,7 @@ Perform a retry if a user has not received the code.
 using DingSDK;
 using DingSDK.Models.Components;
 
-var sdk = new Ding(
-    security: new Security() {
+var sdk = new Ding(security: new Security() {
         APIKey = "YOUR_API_KEY",
     });
 

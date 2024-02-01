@@ -21,8 +21,7 @@ Check a code
 using DingSDK;
 using DingSDK.Models.Components;
 
-var sdk = new Ding(
-    security: new Security() {
+var sdk = new Ding(security: new Security() {
         APIKey = "YOUR_API_KEY",
     });
 
@@ -59,8 +58,7 @@ Send a code
 using DingSDK;
 using DingSDK.Models.Components;
 
-var sdk = new Ding(
-    security: new Security() {
+var sdk = new Ding(security: new Security() {
         APIKey = "YOUR_API_KEY",
     });
 
@@ -96,8 +94,7 @@ Perform a retry
 using DingSDK;
 using DingSDK.Models.Components;
 
-var sdk = new Ding(
-    security: new Security() {
+var sdk = new Ding(security: new Security() {
         APIKey = "YOUR_API_KEY",
     });
 

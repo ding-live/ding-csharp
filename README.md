@@ -26,8 +26,7 @@ Send an OTP code to a user's phone number.
 using DingSDK;
 using DingSDK.Models.Components;
 
-var sdk = new Ding(
-    security: new Security() {
+var sdk = new Ding(security: new Security() {
         APIKey = "YOUR_API_KEY",
     });
 
@@ -50,8 +49,7 @@ Check that a code entered by a user is valid.
 using DingSDK;
 using DingSDK.Models.Components;
 
-var sdk = new Ding(
-    security: new Security() {
+var sdk = new Ding(security: new Security() {
         APIKey = "YOUR_API_KEY",
     });
 
@@ -75,8 +73,7 @@ Perform a retry if a user has not received the code.
 using DingSDK;
 using DingSDK.Models.Components;
 
-var sdk = new Ding(
-    security: new Security() {
+var sdk = new Ding(security: new Security() {
         APIKey = "YOUR_API_KEY",
     });
 
@@ -124,6 +121,38 @@ You can override the default server globally by passing a server name to the `se
 
 The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
 <!-- End Server Selection [server] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name     | Type     | Scheme   |
+| -------- | -------- | -------- |
+| `apiKey` | apiKey   | API key  |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using DingSDK;
+using DingSDK.Models.Components;
+
+var sdk = new Ding(security: new Security() {
+        APIKey = "YOUR_API_KEY",
+    });
+
+CreateCheckRequest req = new CreateCheckRequest() {
+    AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
+    CheckCode = "123456",
+    CustomerUuid = "8f1196d5-806e-4b71-9b24-5f96ec052808",
+};
+
+var res = await sdk.Otp.CheckAsync(req);
+
+// handle response
+```
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
