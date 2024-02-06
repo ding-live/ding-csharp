@@ -5,8 +5,9 @@ generation:
     optionalPropertyRendering: withExample
   fixes:
     nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
 csharp:
-  version: 0.8.0
+  version: 0.9.0
   author: Ding
   dotnetVersion: net5.0
   flattenGlobalSecurity: false

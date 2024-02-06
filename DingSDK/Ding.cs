@@ -72,17 +72,17 @@ namespace DingSDK
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.8.0";
-        private const string _sdkGenVersion = "2.245.1";
+        private const string _sdkVersion = "0.9.0";
+        private const string _sdkGenVersion = "2.250.2";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.8.0 2.245.1 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.9.0 2.250.2 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
-        private ISpeakeasyHttpClient _securityClient;
+        private Func<Security>? _securitySource;
         public IOtp Otp { get; private set; }
         public ILookup Lookup { get; private set; }
 
-        public Ding(Security? security = null, string? server = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
+        public Ding(Security? security = null, Func<Security>? securitySource = null, string? server = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
 
             if (serverUrl != null)
@@ -95,11 +95,14 @@ namespace DingSDK
             }
 
             _defaultClient = new SpeakeasyHttpClient(client);
-            _securityClient = _defaultClient;
 
-            if(security != null)
+            if(securitySource != null)
             {
-                _securityClient = SecuritySerializer.Apply(_defaultClient, security);
+                _securitySource = securitySource;
+            }
+            else if(security != null)
+            {
+                _securitySource = () => security;
             }
 
             SDKConfiguration = new SDKConfig()
@@ -107,8 +110,8 @@ namespace DingSDK
                 serverUrl = _serverUrl
             };
 
-            Otp = new Otp(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
-            Lookup = new Lookup(_defaultClient, _securityClient, _serverUrl, SDKConfiguration);
+            Otp = new Otp(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Lookup = new Lookup(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }
