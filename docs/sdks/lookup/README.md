@@ -26,7 +26,7 @@ var sdk = new Ding(security: new Security() {
 
 var res = await sdk.Lookup.LookupAsync(
     customerUuid: "6e93aa15-9177-4d09-8395-b69ce50db1c8",
-    phoneNumber: "string");
+    phoneNumber: "<value>");
 
 // handle response
 ```
