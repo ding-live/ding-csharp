@@ -28,7 +28,7 @@ namespace DingSDK.Models.Components
         public string CheckCode { get; set; } = default!;
 
         /// <summary>
-        /// Your customer UUID, which can be found in the API settings in the dashboard.
+        /// Your customer UUID, which can be found in the API settings in the Dashboard.
         /// </summary>
         [JsonProperty("customer_uuid")]
         public string CustomerUuid { get; set; } = default!;

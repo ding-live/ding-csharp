@@ -39,13 +39,13 @@ namespace DingSDK
     
     public class SDKConfig
     {
-        public static Dictionary<string, string> ServerList = new Dictionary<string, string>()
+        public static string[] ServerList = new string[]
         {
-            {"Serverproduction", "https://api.ding.live/v1" },
+            "https://api.ding.live/v1",
         };
         /// Contains the list of servers available to the SDK
         public string serverUrl = "";
-        public string server = "";
+        public int serverIndex = 0;
 
         public string GetTemplatedServerDetails()
         {
@@ -53,14 +53,7 @@ namespace DingSDK
             {
                 return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.serverUrl, "/"), new Dictionary<string, string>());
             }
-            if (!String.IsNullOrEmpty(this.server))
-            {
-                this.server = "Serverproduction";
-            }
-            Dictionary<string, string> serverDefault = new Dictionary<string, string>();
-            
-
-            return Utilities.TemplateUrl(SDKConfig.ServerList[this.server], serverDefault);
+            return Utilities.TemplateUrl(SDKConfig.ServerList[this.serverIndex], new Dictionary<string, string>());
         }
     }
 
@@ -72,18 +65,23 @@ namespace DingSDK
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.9.2";
-        private const string _sdkGenVersion = "2.262.2";
+        private const string _sdkVersion = "0.10.0";
+        private const string _sdkGenVersion = "2.263.3";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.9.2 2.262.2 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.10.0 2.263.3 1.0.0 DingSDK";
         private string _serverUrl = "";
+        private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
         public IOtp Otp { get; private set; }
         public ILookup Lookup { get; private set; }
 
-        public Ding(Security? security = null, Func<Security>? securitySource = null, string? server = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
+        public Ding(Security? security = null, Func<Security>? securitySource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
         {
+            if (serverIndex != null)
+            {
+                _serverIndex = serverIndex.Value;
+            }
 
             if (serverUrl != null)
             {
@@ -111,6 +109,7 @@ namespace DingSDK
 
             SDKConfiguration = new SDKConfig()
             {
+                serverIndex = _serverIndex,
                 serverUrl = _serverUrl
             };
 
