@@ -4,15 +4,15 @@ management:
   docChecksum: 01bd42610039f89b431afa7eb1a3c56c
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.263.3
-  releaseVersion: 0.10.0
-  configChecksum: bc5cf47881374f9c236900b242e1ffce
+  generationVersion: 2.269.0
+  releaseVersion: 0.11.0
+  configChecksum: c6a5e03e248c7af5e1ffdf2174e649a8
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.3.2
+    core: 3.4.1
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.83.1
@@ -21,6 +21,7 @@ generatedFiles:
   - DingSDK/Otp.cs
   - DingSDK/Lookup.cs
   - DingSDK/Ding.cs
+  - global.json
   - DingSDK/Utils/BigIntSerializer.cs
   - DingSDK/Utils/DecimalSerializer.cs
   - DingSDK/Utils/EnumSerializer.cs
