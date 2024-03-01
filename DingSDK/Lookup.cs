@@ -38,10 +38,10 @@ namespace DingSDK
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.263.3";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.275.4";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.10.0 2.263.3 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.11.0 2.275.4 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -64,12 +64,11 @@ namespace DingSDK
             };
             string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
             var urlString = URLBuilder.Build(baseUrl, "/lookup/{phone_number}", request);
-            
+
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, urlString);
             httpRequest.Headers.Add("user-agent", _userAgent);
             HeaderSerializer.PopulateHeaders(ref httpRequest, request);
-            
-            
+
             var client = _defaultClient;
             if (_securitySource != null)
             {
@@ -79,14 +78,14 @@ namespace DingSDK
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            
+
             var response = new Models.Requests.LookupResponse
             {
                 StatusCode = (int)httpResponse.StatusCode,
                 ContentType = contentType,
                 RawResponse = httpResponse
             };
-            
+
             if((response.StatusCode == 200))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
@@ -96,6 +95,7 @@ namespace DingSDK
 
                 return response;
             }
+
             if((response.StatusCode == 400))
             {
                 if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
