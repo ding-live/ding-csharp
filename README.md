@@ -31,11 +31,11 @@ var sdk = new Ding(security: new Security() {
     });
 
 CreateAuthenticationRequest req = new CreateAuthenticationRequest() {
-    CustomerUuid = "eae192ab-9e1e-4b21-b5b1-bfcb79a32fcc",
+    CustomerUuid = "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
     PhoneNumber = "+1234567890",
 };
 
-var res = await sdk.Otp.CreateAutenticationAsync(req);
+var res = await sdk.Otp.CreateAuthenticationAsync(req);
 
 // handle response
 ```
@@ -94,7 +94,7 @@ var res = await sdk.Otp.RetryAsync(req);
 ### [Otp](docs/sdks/otp/README.md)
 
 * [Check](docs/sdks/otp/README.md#check) - Check a code
-* [CreateAutentication](docs/sdks/otp/README.md#createautentication) - Send a code
+* [CreateAuthentication](docs/sdks/otp/README.md#createauthentication) - Send a code
 * [Retry](docs/sdks/otp/README.md#retry) - Perform a retry
 
 ### [Lookup](docs/sdks/lookup/README.md)

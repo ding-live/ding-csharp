@@ -32,6 +32,7 @@ namespace DingSDK.Models.Components
         ///   * `invalid_os_version` - The provided OS version is invalid.<br/>
         ///   * `invalid_device_model` - The provided device model is invalid.<br/>
         ///   * `invalid_device_id` - The provided device ID is invalid.<br/>
+        ///   * `invalid_template_id` - The provided template ID is invalid.<br/>
         /// 
         /// </remarks>
         /// </summary>

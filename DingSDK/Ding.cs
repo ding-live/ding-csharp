@@ -18,8 +18,6 @@ namespace DingSDK
     using System.Threading.Tasks;
     using System;
 
-
-
     /// <summary>
     /// Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
     /// </summary>
@@ -36,14 +34,16 @@ namespace DingSDK
         /// </summary>
         public ILookup Lookup { get; }
     }
-    
+
     public class SDKConfig
     {
-        public static string[] ServerList = new string[]
-        {
+        /// <summary>
+        /// List of server URLs available to the SDK.
+        /// </summary>
+        public static readonly string[] ServerList = {
             "https://api.ding.live/v1",
         };
-        /// Contains the list of servers available to the SDK
+
         public string serverUrl = "";
         public int serverIndex = 0;
 
@@ -65,10 +65,10 @@ namespace DingSDK
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.10.0";
-        private const string _sdkGenVersion = "2.263.3";
+        private const string _sdkVersion = "0.11.0";
+        private const string _sdkGenVersion = "2.279.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.10.0 2.263.3 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.11.0 2.279.1 1.0.0 DingSDK";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -80,6 +80,10 @@ namespace DingSDK
         {
             if (serverIndex != null)
             {
+                if (serverIndex.Value < 0 || serverIndex.Value >= SDKConfig.ServerList.Length)
+                {
+                    throw new Exception($"Invalid server index {serverIndex.Value}");
+                }
                 _serverIndex = serverIndex.Value;
             }
 

@@ -14,7 +14,7 @@ namespace DingSDK.Models.Requests
     using System.Net.Http;
     using System;
     
-    public class CreateAutenticationResponse
+    public class CreateAuthenticationResponse
     {
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace DingSDK.Models.Requests
         /// <summary>
         /// OK
         /// </summary>
-        public CreateAuthenticationResponse? CreateAuthenticationResponse { get; set; }
+        public Models.Components.CreateAuthenticationResponse? CreateAuthenticationResponseValue { get; set; }
 
         /// <summary>
         /// Bad Request

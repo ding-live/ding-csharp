@@ -1,26 +1,27 @@
 lockVersion: 2.0.0
 id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
-  docChecksum: 01bd42610039f89b431afa7eb1a3c56c
+  docChecksum: a2a29dc8a8df536c8b2553db26987fad
   docVersion: 1.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.263.3
-  releaseVersion: 0.10.0
-  configChecksum: bc5cf47881374f9c236900b242e1ffce
+  speakeasyVersion: 1.205.2
+  generationVersion: 2.279.1
+  releaseVersion: 0.11.0
+  configChecksum: c7e1482b1d0492ec328470a6ca1158a4
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.3.2
+    core: 3.4.3
     examples: 2.81.3
     flattening: 2.81.1
-    globalSecurity: 2.83.1
-    globalServerURLs: 2.82.2
+    globalSecurity: 2.83.3
+    globalServerURLs: 2.82.3
 generatedFiles:
   - DingSDK/Otp.cs
   - DingSDK/Lookup.cs
   - DingSDK/Ding.cs
+  - global.json
   - DingSDK/Utils/BigIntSerializer.cs
   - DingSDK/Utils/DecimalSerializer.cs
   - DingSDK/Utils/EnumSerializer.cs
@@ -36,7 +37,7 @@ generatedFiles:
   - DingSDK/DingSDK.csproj
   - DingSDK.sln
   - DingSDK/Models/Requests/CheckResponse.cs
-  - DingSDK/Models/Requests/CreateAutenticationResponse.cs
+  - DingSDK/Models/Requests/CreateAuthenticationResponse.cs
   - DingSDK/Models/Requests/RetryResponse.cs
   - DingSDK/Models/Requests/LookupRequest.cs
   - DingSDK/Models/Requests/LookupResponse.cs
@@ -56,7 +57,7 @@ generatedFiles:
   - DingSDK/Models/Components/LookupResponse.cs
   - DingSDK/Models/Components/Security.cs
   - docs/Models/Requests/CheckResponse.md
-  - docs/Models/Requests/CreateAutenticationResponse.md
+  - docs/Models/Requests/CreateAuthenticationResponse.md
   - docs/Models/Requests/RetryResponse.md
   - docs/Models/Requests/LookupRequest.md
   - docs/Models/Requests/LookupResponse.md

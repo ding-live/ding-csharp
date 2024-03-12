@@ -80,5 +80,11 @@ namespace DingSDK.Models.Components
         /// </summary>
         [JsonProperty("phone_number")]
         public string PhoneNumber { get; set; } = default!;
+
+        /// <summary>
+        /// The template id associated with the message content variant to be sent.
+        /// </summary>
+        [JsonProperty("template_id")]
+        public string? TemplateId { get; set; }
     }
 }
