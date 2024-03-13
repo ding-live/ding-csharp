@@ -9,6 +9,7 @@ Send OTP codes to your users using their phone numbers.
 
 * [Check](#check) - Check a code
 * [CreateAuthentication](#createauthentication) - Send a code
+* [Feedback](#feedback) - Send feedback
 * [Retry](#retry) - Perform a retry
 
 ## Check
@@ -82,6 +83,43 @@ var res = await sdk.Otp.CreateAuthenticationAsync(req);
 ### Response
 
 **[Models.Requests.CreateAuthenticationResponse](../../Models/Requests/CreateAuthenticationResponse.md)**
+
+
+## Feedback
+
+Send feedback
+
+### Example Usage
+
+```csharp
+using DingSDK;
+using DingSDK.Models.Components;
+
+var sdk = new Ding(security: new Security() {
+        APIKey = "YOUR_API_KEY",
+    });
+
+FeedbackRequest req = new FeedbackRequest() {
+    CustomerUuid = "c0c405fa-6bcb-4094-9430-7d6e2428ff23",
+    PhoneNumber = "+1234567890",
+    Status = FeedbackRequestStatus.Onboarded,
+};
+
+var res = await sdk.Otp.FeedbackAsync(req);
+
+// handle response
+```
+
+### Parameters
+
+| Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `request`                                                     | [FeedbackRequest](../../Models/Components/FeedbackRequest.md) | :heavy_check_mark:                                            | The request object to use for the request.                    |
+
+
+### Response
+
+**[Models.Requests.FeedbackResponse](../../Models/Requests/FeedbackResponse.md)**
 
 
 ## Retry

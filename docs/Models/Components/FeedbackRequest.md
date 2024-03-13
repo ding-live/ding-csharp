@@ -1,0 +1,10 @@
+# FeedbackRequest
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  | Example                                                                      |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `CustomerUuid`                                                               | *string*                                                                     | :heavy_check_mark:                                                           | Your customer UUID, which can be found in the API settings in the dashboard. |                                                                              |
+| `PhoneNumber`                                                                | *string*                                                                     | :heavy_check_mark:                                                           | An E.164 formatted phone number.                                             | +1234567890                                                                  |
+| `Status`                                                                     | [FeedbackRequestStatus](../../Models/Components/FeedbackRequestStatus.md)    | :heavy_check_mark:                                                           | The type of the feedback.                                                    | onboarded                                                                    |

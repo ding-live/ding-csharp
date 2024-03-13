@@ -36,6 +36,11 @@ namespace DingSDK
         Task<Models.Requests.CreateAuthenticationResponse> CreateAuthenticationAsync(CreateAuthenticationRequest? request = null);
 
         /// <summary>
+        /// Send feedback
+        /// </summary>
+        Task<Models.Requests.FeedbackResponse> FeedbackAsync(FeedbackRequest? request = null);
+
+        /// <summary>
         /// Perform a retry
         /// </summary>
         Task<RetryResponse> RetryAsync(RetryAuthenticationRequest? request = null);
@@ -48,10 +53,10 @@ namespace DingSDK
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.11.0";
-        private const string _sdkGenVersion = "2.279.1";
+        private const string _sdkVersion = "0.11.1";
+        private const string _sdkGenVersion = "2.280.6";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.11.0 2.279.1 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.11.1 2.280.6 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -170,6 +175,52 @@ namespace DingSDK
 
                 return response;
             }
+            return response;
+        }
+
+
+        public async Task<Models.Requests.FeedbackResponse> FeedbackAsync(FeedbackRequest? request = null)
+        {
+            string baseUrl = this.SDKConfiguration.GetTemplatedServerDetails();
+
+            var urlString = baseUrl + "/authentication/feedback";
+
+            var httpRequest = new HttpRequestMessage(HttpMethod.Post, urlString);
+            httpRequest.Headers.Add("user-agent", _userAgent);
+
+            var serializedBody = RequestBodySerializer.Serialize(request, "Request", "json", false, true);
+            if (serializedBody != null)
+            {
+                httpRequest.Content = serializedBody;
+            }
+
+            var client = _defaultClient;
+            if (_securitySource != null)
+            {
+                client = SecuritySerializer.Apply(_defaultClient, _securitySource);
+            }
+
+            var httpResponse = await client.SendAsync(httpRequest);
+
+            var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
+
+            var response = new Models.Requests.FeedbackResponse
+            {
+                StatusCode = (int)httpResponse.StatusCode,
+                ContentType = contentType,
+                RawResponse = httpResponse
+            };
+
+            if((response.StatusCode == 200))
+            {
+                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
+                {
+                    response.FeedbackResponseValue = JsonConvert.DeserializeObject<Models.Components.FeedbackResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Include, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
+                }
+
+                return response;
+            }
+                    response.ErrorResponse = JsonConvert.DeserializeObject<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), new JsonSerializerSettings(){ NullValueHandling = NullValueHandling.Include, Converters = new JsonConverter[] { new FlexibleObjectDeserializer(), new EnumSerializer() }});
             return response;
         }
 

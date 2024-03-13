@@ -95,6 +95,7 @@ var res = await sdk.Otp.RetryAsync(req);
 
 * [Check](docs/sdks/otp/README.md#check) - Check a code
 * [CreateAuthentication](docs/sdks/otp/README.md#createauthentication) - Send a code
+* [Feedback](docs/sdks/otp/README.md#feedback) - Send feedback
 * [Retry](docs/sdks/otp/README.md#retry) - Perform a retry
 
 ### [Lookup](docs/sdks/lookup/README.md)

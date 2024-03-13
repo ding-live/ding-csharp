@@ -30,6 +30,8 @@ namespace DingSDK.Models.Components
     ///   * `invalid_os_version` - The provided OS version is invalid.<br/>
     ///   * `invalid_device_model` - The provided device model is invalid.<br/>
     ///   * `invalid_device_id` - The provided device ID is invalid.<br/>
+    ///   * `no_associated_auth_found` - The associated authentication was not found.<br/>
+    ///   * `duplicated_feedback_status` - Duplicated feedback status has found.<br/>
     ///   * `invalid_template_id` - The provided template ID is invalid.<br/>
     /// 
     /// </remarks>
@@ -68,6 +70,10 @@ namespace DingSDK.Models.Components
         InvalidDeviceModel,
         [JsonProperty("invalid_device_id")]
         InvalidDeviceId,
+        [JsonProperty("no_associated_auth_found")]
+        NoAssociatedAuthFound,
+        [JsonProperty("duplicated_feedback_status")]
+        DuplicatedFeedbackStatus,
         [JsonProperty("invalid_template_id")]
         InvalidTemplateId,
     }

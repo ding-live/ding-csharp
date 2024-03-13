@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
-  docChecksum: a2a29dc8a8df536c8b2553db26987fad
+  docChecksum: bd5703227a0834ce8cffa01539ad4346
   docVersion: 1.0.0
-  speakeasyVersion: 1.205.2
-  generationVersion: 2.279.1
-  releaseVersion: 0.11.0
-  configChecksum: c7e1482b1d0492ec328470a6ca1158a4
+  speakeasyVersion: 1.207.1
+  generationVersion: 2.280.6
+  releaseVersion: 0.11.1
+  configChecksum: fcc79fdbd6611604fe7a36381ec8f363
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
@@ -38,6 +38,7 @@ generatedFiles:
   - DingSDK.sln
   - DingSDK/Models/Requests/CheckResponse.cs
   - DingSDK/Models/Requests/CreateAuthenticationResponse.cs
+  - DingSDK/Models/Requests/FeedbackResponse.cs
   - DingSDK/Models/Requests/RetryResponse.cs
   - DingSDK/Models/Requests/LookupRequest.cs
   - DingSDK/Models/Requests/LookupResponse.cs
@@ -50,6 +51,9 @@ generatedFiles:
   - DingSDK/Models/Components/CreateAuthenticationResponse.cs
   - DingSDK/Models/Components/DeviceType.cs
   - DingSDK/Models/Components/CreateAuthenticationRequest.cs
+  - DingSDK/Models/Components/FeedbackResponse.cs
+  - DingSDK/Models/Components/FeedbackRequestStatus.cs
+  - DingSDK/Models/Components/FeedbackRequest.cs
   - DingSDK/Models/Components/RetryAuthenticationResponseStatus.cs
   - DingSDK/Models/Components/RetryAuthenticationResponse.cs
   - DingSDK/Models/Components/RetryAuthenticationRequest.cs
@@ -58,6 +62,7 @@ generatedFiles:
   - DingSDK/Models/Components/Security.cs
   - docs/Models/Requests/CheckResponse.md
   - docs/Models/Requests/CreateAuthenticationResponse.md
+  - docs/Models/Requests/FeedbackResponse.md
   - docs/Models/Requests/RetryResponse.md
   - docs/Models/Requests/LookupRequest.md
   - docs/Models/Requests/LookupResponse.md
@@ -70,6 +75,9 @@ generatedFiles:
   - docs/Models/Components/CreateAuthenticationResponse.md
   - docs/Models/Components/DeviceType.md
   - docs/Models/Components/CreateAuthenticationRequest.md
+  - docs/Models/Components/FeedbackResponse.md
+  - docs/Models/Components/FeedbackRequestStatus.md
+  - docs/Models/Components/FeedbackRequest.md
   - docs/Models/Components/RetryAuthenticationResponseStatus.md
   - docs/Models/Components/RetryAuthenticationResponse.md
   - docs/Models/Components/RetryAuthenticationRequest.md
