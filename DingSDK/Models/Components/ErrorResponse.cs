@@ -34,6 +34,7 @@ namespace DingSDK.Models.Components
         ///   * `invalid_device_id` - The provided device ID is invalid.<br/>
         ///   * `no_associated_auth_found` - The associated authentication was not found.<br/>
         ///   * `duplicated_feedback_status` - Duplicated feedback status has found.<br/>
+        ///   * `invalid_feedback_status` - The provided feedback status is invalid.<br/>
         ///   * `invalid_template_id` - The provided template ID is invalid.<br/>
         /// 
         /// </remarks>
