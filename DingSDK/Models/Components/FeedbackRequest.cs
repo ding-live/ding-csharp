@@ -10,6 +10,7 @@
 #nullable enable
 namespace DingSDK.Models.Components
 {
+    using DingSDK.Models.Components;
     using Newtonsoft.Json;
     
     public class FeedbackRequest

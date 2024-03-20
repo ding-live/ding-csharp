@@ -3,10 +3,10 @@ id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
   docChecksum: 761ff7b72b6a6546da651525ba52b429
   docVersion: 1.0.0
-  speakeasyVersion: 1.209.3
-  generationVersion: 2.281.2
-  releaseVersion: 0.11.2
-  configChecksum: b2e537071b828350ea0bb3801b08e50e
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 0.11.3
+  configChecksum: 5c85799aeefe30487e9ef007719aa0f6
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
@@ -15,7 +15,7 @@ features:
     core: 3.4.3
     examples: 2.81.3
     flattening: 2.81.1
-    globalSecurity: 2.83.3
+    globalSecurity: 2.83.4
     globalServerURLs: 2.82.3
 generatedFiles:
   - DingSDK/Otp.cs
