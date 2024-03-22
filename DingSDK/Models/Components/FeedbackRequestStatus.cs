@@ -20,6 +20,8 @@ namespace DingSDK.Models.Components
     {
         [JsonProperty("onboarded")]
         Onboarded,
+        [JsonProperty("not_onboarded")]
+        NotOnboarded,
     }
 
     public static class FeedbackRequestStatusExtension
