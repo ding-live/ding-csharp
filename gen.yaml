@@ -10,8 +10,9 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 csharp:
-  version: 0.11.4
+  version: 0.12.0
   author: Ding
+  company: ""
   dotnetVersion: net5.0
   flattenGlobalSecurity: false
   imports:
@@ -26,3 +27,4 @@ csharp:
   maxMethodParams: 4
   outputModelSuffix: output
   packageName: DingSDK
+  product: ""

@@ -3,16 +3,16 @@ id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
   docChecksum: dcfda3975ee56f99d9a1aab22294af6d
   docVersion: 1.0.0
-  speakeasyVersion: 1.219.2
-  generationVersion: 2.286.7
-  releaseVersion: 0.11.4
-  configChecksum: d8f5e0fa18f8eb7d3022bc9f4e6ca8e2
+  speakeasyVersion: 1.228.1
+  generationVersion: 2.292.0
+  releaseVersion: 0.12.0
+  configChecksum: 90ab156ea50276ff8bbe8e90c2853333
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.4.3
+    core: 3.5.0
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.83.4
@@ -22,9 +22,11 @@ generatedFiles:
   - DingSDK/Lookup.cs
   - DingSDK/Ding.cs
   - global.json
-  - DingSDK/Utils/BigIntSerializer.cs
-  - DingSDK/Utils/DecimalSerializer.cs
-  - DingSDK/Utils/EnumSerializer.cs
+  - DingSDK.sln
+  - DingSDK/Utils/AnyDeserializer.cs
+  - DingSDK/Utils/BigIntStrConverter.cs
+  - DingSDK/Utils/DecimalStrConverter.cs
+  - DingSDK/Utils/EnumConverter.cs
   - DingSDK/Utils/FlexibleObjectDeserializer.cs
   - DingSDK/Utils/HeaderSerializer.cs
   - DingSDK/Utils/IsoDateTimeSerializer.cs
@@ -35,7 +37,6 @@ generatedFiles:
   - DingSDK/Utils/URLBuilder.cs
   - DingSDK/Utils/Utilities.cs
   - DingSDK/DingSDK.csproj
-  - DingSDK.sln
   - DingSDK/Models/Requests/CheckResponse.cs
   - DingSDK/Models/Requests/CreateAuthenticationResponse.cs
   - DingSDK/Models/Requests/FeedbackResponse.cs
