@@ -23,11 +23,6 @@ namespace DingSDK.Models.Requests
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Bad Request
-        /// </summary>
-        public ErrorResponse? ErrorResponse { get; set; }
-
-        /// <summary>
         /// OK
         /// </summary>
         public RetryAuthenticationResponse? RetryAuthenticationResponse { get; set; }

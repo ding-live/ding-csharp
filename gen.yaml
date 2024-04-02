@@ -10,8 +10,9 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 csharp:
-  version: 0.12.0
+  version: 0.13.0
   author: Ding
+  clientServerStatusCodesAsErrors: true
   company: ""
   dotnetVersion: net5.0
   flattenGlobalSecurity: false

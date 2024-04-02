@@ -106,8 +106,6 @@ var res = await sdk.Otp.RetryAsync(req);
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-## Server Selection
-
 ### Select Server by Index
 
 You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
@@ -155,6 +153,54 @@ var res = await sdk.Otp.CheckAsync(req);
 // handle response
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
+| DingSDK.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
+
+### Example
+
+```csharp
+using DingSDK;
+using DingSDK.Models.Components;
+using System;
+using DingSDK.Models.Errors;
+
+var sdk = new Ding(security: new Security() {
+        APIKey = "YOUR_API_KEY",
+    });
+
+CreateCheckRequest req = new CreateCheckRequest() {
+    AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
+    CheckCode = "123456",
+    CustomerUuid = "8f1196d5-806e-4b71-9b24-5f96ec052808",
+};
+
+try
+{
+    var res = await sdk.Otp.CheckAsync(req);
+    // handle response
+}
+catch (Exception ex)
+{
+    if (ex is ErrorResponse)
+    {
+        // handle exception
+    }
+    else if (ex is DingSDK.Models.Errors.SDKException)
+    {
+        // handle exception
+    }
+}
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

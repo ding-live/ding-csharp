@@ -11,6 +11,7 @@
 namespace DingSDK.Models.Requests
 {
     using DingSDK.Models.Components;
+    using DingSDK.Models.Errors;
     using System.Net.Http;
     using System;
     

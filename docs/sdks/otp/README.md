@@ -47,7 +47,12 @@ var res = await sdk.Otp.CheckAsync(req);
 ### Response
 
 **[CheckResponse](../../Models/Requests/CheckResponse.md)**
+### Errors
 
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
+| DingSDK.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
 
 ## CreateAuthentication
 
@@ -83,7 +88,12 @@ var res = await sdk.Otp.CreateAuthenticationAsync(req);
 ### Response
 
 **[Models.Requests.CreateAuthenticationResponse](../../Models/Requests/CreateAuthenticationResponse.md)**
+### Errors
 
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
+| DingSDK.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
 
 ## Feedback
 
@@ -120,7 +130,11 @@ var res = await sdk.Otp.FeedbackAsync(req);
 ### Response
 
 **[Models.Requests.FeedbackResponse](../../Models/Requests/FeedbackResponse.md)**
+### Errors
 
+| Error Object                       | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| DingSDK.Models.Errors.SDKException | 4xx-5xx                            | */*                                |
 
 ## Retry
 
@@ -156,4 +170,9 @@ var res = await sdk.Otp.RetryAsync(req);
 ### Response
 
 **[RetryResponse](../../Models/Requests/RetryResponse.md)**
+### Errors
 
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
+| DingSDK.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |

@@ -3,16 +3,16 @@ id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
   docChecksum: dcfda3975ee56f99d9a1aab22294af6d
   docVersion: 1.0.0
-  speakeasyVersion: 1.228.1
-  generationVersion: 2.292.0
-  releaseVersion: 0.12.0
-  configChecksum: 90ab156ea50276ff8bbe8e90c2853333
+  speakeasyVersion: 1.231.1
+  generationVersion: 2.295.1
+  releaseVersion: 0.13.0
+  configChecksum: 46adc53b829d59939f74b432300a2d06
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.5.0
+    core: 3.6.0
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.83.4
@@ -31,20 +31,20 @@ generatedFiles:
   - DingSDK/Utils/HeaderSerializer.cs
   - DingSDK/Utils/IsoDateTimeSerializer.cs
   - DingSDK/Utils/RequestBodySerializer.cs
+  - DingSDK/Utils/ResponseBodyDeserializer.cs
   - DingSDK/Utils/SecuritySerializer.cs
   - DingSDK/Utils/SpeakeasyHttpClient.cs
   - DingSDK/Utils/SpeakeasyMetadata.cs
   - DingSDK/Utils/URLBuilder.cs
   - DingSDK/Utils/Utilities.cs
   - DingSDK/DingSDK.csproj
+  - DingSDK/Models/Errors/SDKException.cs
   - DingSDK/Models/Requests/CheckResponse.cs
   - DingSDK/Models/Requests/CreateAuthenticationResponse.cs
   - DingSDK/Models/Requests/FeedbackResponse.cs
   - DingSDK/Models/Requests/RetryResponse.cs
   - DingSDK/Models/Requests/LookupRequest.cs
   - DingSDK/Models/Requests/LookupResponse.cs
-  - DingSDK/Models/Components/Code.cs
-  - DingSDK/Models/Components/ErrorResponse.cs
   - DingSDK/Models/Components/CreateCheckResponseStatus.cs
   - DingSDK/Models/Components/CreateCheckResponse.cs
   - DingSDK/Models/Components/CreateCheckRequest.cs
@@ -61,14 +61,14 @@ generatedFiles:
   - DingSDK/Models/Components/LineType.cs
   - DingSDK/Models/Components/LookupResponse.cs
   - DingSDK/Models/Components/Security.cs
+  - DingSDK/Models/Errors/Code.cs
+  - DingSDK/Models/Errors/ErrorResponse.cs
   - docs/Models/Requests/CheckResponse.md
   - docs/Models/Requests/CreateAuthenticationResponse.md
   - docs/Models/Requests/FeedbackResponse.md
   - docs/Models/Requests/RetryResponse.md
   - docs/Models/Requests/LookupRequest.md
   - docs/Models/Requests/LookupResponse.md
-  - docs/Models/Components/Code.md
-  - docs/Models/Components/ErrorResponse.md
   - docs/Models/Components/CreateCheckResponseStatus.md
   - docs/Models/Components/CreateCheckResponse.md
   - docs/Models/Components/CreateCheckRequest.md
@@ -85,6 +85,8 @@ generatedFiles:
   - docs/Models/Components/LineType.md
   - docs/Models/Components/LookupResponse.md
   - docs/Models/Components/Security.md
+  - docs/Models/Errors/Code.md
+  - docs/Models/Errors/ErrorResponse.md
   - docs/sdks/ding/README.md
   - docs/sdks/otp/README.md
   - docs/sdks/lookup/README.md

@@ -42,4 +42,9 @@ var res = await sdk.Lookup.LookupAsync(
 ### Response
 
 **[Models.Requests.LookupResponse](../../Models/Requests/LookupResponse.md)**
+### Errors
 
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
+| DingSDK.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
