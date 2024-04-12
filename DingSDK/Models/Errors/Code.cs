@@ -10,6 +10,7 @@
 #nullable enable
 namespace DingSDK.Models.Errors
 {
+    using DingSDK.Utils;
     using Newtonsoft.Json;
     using System;
     

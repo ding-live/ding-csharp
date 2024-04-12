@@ -11,6 +11,7 @@
 namespace DingSDK.Models.Errors
 {
     using DingSDK.Models.Errors;
+    using DingSDK.Utils;
     using Newtonsoft.Json;
     using System;
     

@@ -55,10 +55,10 @@ namespace DingSDK
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.13.0";
-        private const string _sdkGenVersion = "2.295.1";
+        private const string _sdkVersion = "0.14.0";
+        private const string _sdkGenVersion = "2.304.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.13.0 2.295.1 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.14.0 2.304.1 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -95,50 +95,47 @@ namespace DingSDK
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            var response = new CheckResponse
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 200)
             {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            if (response.StatusCode == 200)
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
                     var obj = ResponseBodyDeserializer.Deserialize<CreateCheckResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
+                    var response = new CheckResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
                     response.CreateCheckResponse = obj;
+                    return response;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
-
             }
-            else if (response.StatusCode == 400)
+            else if(responseStatusCode == 400)
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
                     throw obj!;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
-
             }
-            else if (response.StatusCode >= 400 && response.StatusCode < 500 || response.StatusCode >= 500 && response.StatusCode < 600)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-
+                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else
             {
-                throw new SDKException("unknown status code received", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            return response;
         }
-
 
         public async Task<Models.Requests.CreateAuthenticationResponse> CreateAuthenticationAsync(CreateAuthenticationRequest? request = null)
         {
@@ -164,50 +161,47 @@ namespace DingSDK
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            var response = new Models.Requests.CreateAuthenticationResponse
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 200)
             {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            if (response.StatusCode == 200)
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
                     var obj = ResponseBodyDeserializer.Deserialize<Models.Components.CreateAuthenticationResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
+                    var response = new Models.Requests.CreateAuthenticationResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
                     response.CreateAuthenticationResponseValue = obj;
+                    return response;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
-
             }
-            else if (response.StatusCode == 400)
+            else if(responseStatusCode == 400)
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
                     throw obj!;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
-
             }
-            else if (response.StatusCode >= 400 && response.StatusCode < 500 || response.StatusCode >= 500 && response.StatusCode < 600)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-
+                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else
             {
-                throw new SDKException("unknown status code received", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            return response;
         }
-
 
         public async Task<Models.Requests.FeedbackResponse> FeedbackAsync(FeedbackRequest? request = null)
         {
@@ -233,46 +227,50 @@ namespace DingSDK
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            var response = new Models.Requests.FeedbackResponse
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 200)
             {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            if (response.StatusCode == 200)
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
                     var obj = ResponseBodyDeserializer.Deserialize<Models.Components.FeedbackResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
+                    var response = new Models.Requests.FeedbackResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
                     response.FeedbackResponseValue = obj;
+                    return response;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
-
             }
-            else if (response.StatusCode >= 400 && response.StatusCode < 500 || response.StatusCode >= 500 && response.StatusCode < 600)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-
+                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
+                    var response = new Models.Requests.FeedbackResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
                     response.ErrorResponse = obj;
+                    return response;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
-
             }
-            return response;
         }
-
 
         public async Task<RetryResponse> RetryAsync(RetryAuthenticationRequest? request = null)
         {
@@ -298,49 +296,46 @@ namespace DingSDK
             var httpResponse = await client.SendAsync(httpRequest);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
-            var response = new RetryResponse
+            int responseStatusCode = (int)httpResponse.StatusCode;
+            if(responseStatusCode == 200)
             {
-                StatusCode = (int)httpResponse.StatusCode,
-                ContentType = contentType,
-                RawResponse = httpResponse
-            };
-            if (response.StatusCode == 200)
-            {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
                     var obj = ResponseBodyDeserializer.Deserialize<RetryAuthenticationResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
+                    var response = new RetryResponse()
+                    {
+                        StatusCode = responseStatusCode,
+                        ContentType = contentType,
+                        RawResponse = httpResponse
+                    };
                     response.RetryAuthenticationResponse = obj;
+                    return response;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
-
             }
-            else if (response.StatusCode == 400)
+            else if(responseStatusCode == 400)
             {
-                if(Utilities.IsContentTypeMatch("application/json",response.ContentType))
-                {                    
+                if(Utilities.IsContentTypeMatch("application/json", contentType))
+                {
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Include);
                     throw obj!;
                 }
                 else
                 {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                    throw new SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
                 }
-
             }
-            else if (response.StatusCode >= 400 && response.StatusCode < 500 || response.StatusCode >= 500 && response.StatusCode < 600)
+            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
             {
-                throw new SDKException("API error occurred", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-
+                throw new SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
             else
             {
-                throw new SDKException("unknown status code received", (int)httpResponse.StatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+                throw new SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            return response;
         }
-
     }
 }

@@ -3,20 +3,21 @@ id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
   docChecksum: dcfda3975ee56f99d9a1aab22294af6d
   docVersion: 1.0.0
-  speakeasyVersion: 1.231.1
-  generationVersion: 2.295.1
-  releaseVersion: 0.13.0
-  configChecksum: 46adc53b829d59939f74b432300a2d06
+  speakeasyVersion: 1.250.0
+  generationVersion: 2.304.1
+  releaseVersion: 0.14.0
+  configChecksum: 390f2f105975f9d770b17605d63fddb3
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.6.0
+    core: 3.7.0
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.83.4
     globalServerURLs: 2.82.3
+    responseFormat: 0.0.1
 generatedFiles:
   - DingSDK/Otp.cs
   - DingSDK/Lookup.cs

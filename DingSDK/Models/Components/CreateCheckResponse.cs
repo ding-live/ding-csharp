@@ -11,6 +11,7 @@
 namespace DingSDK.Models.Components
 {
     using DingSDK.Models.Components;
+    using DingSDK.Utils;
     using Newtonsoft.Json;
     
     public class CreateCheckResponse
