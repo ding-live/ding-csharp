@@ -2,7 +2,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>DingSDK</PackageId>
-    <Version>0.14.0</Version>
+    <Version>0.14.1</Version>
     <Authors>Ding</Authors>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>

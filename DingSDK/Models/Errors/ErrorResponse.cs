@@ -42,6 +42,7 @@ namespace DingSDK.Models.Errors
         ///   * `duplicated_feedback_status` - Duplicated feedback status has found.<br/>
         ///   * `invalid_feedback_status` - The provided feedback status is invalid.<br/>
         ///   * `invalid_template_id` - The provided template ID is invalid.<br/>
+        ///   * `suspended_account` - Your account has been suspended.<br/>
         /// 
         /// </remarks>
         /// </summary>

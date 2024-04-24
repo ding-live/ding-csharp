@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
-  docChecksum: dcfda3975ee56f99d9a1aab22294af6d
+  docChecksum: 9894bd098e7dd9f81402a9c6ea0a6ea0
   docVersion: 1.0.0
-  speakeasyVersion: 1.250.0
-  generationVersion: 2.304.1
-  releaseVersion: 0.14.0
-  configChecksum: 390f2f105975f9d770b17605d63fddb3
+  speakeasyVersion: 1.271.0
+  generationVersion: 2.312.1
+  releaseVersion: 0.14.1
+  configChecksum: 2963ff59c8451e731a4459c051ddc88c
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true

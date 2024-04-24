@@ -112,7 +112,7 @@ var sdk = new Ding(security: new Security() {
 FeedbackRequest req = new FeedbackRequest() {
     CustomerUuid = "c0c405fa-6bcb-4094-9430-7d6e2428ff23",
     PhoneNumber = "+1234567890",
-    Status = FeedbackRequestStatus.Onboarded,
+    Status = DingSDK.Models.Components.FeedbackRequestStatus.Onboarded,
 };
 
 var res = await sdk.Otp.FeedbackAsync(req);
