@@ -10,6 +10,7 @@
 #nullable enable
 namespace DingSDK
 {
+    using DingSDK.Hooks;
     using DingSDK.Models.Components;
     using DingSDK.Models.Errors;
     using DingSDK.Utils;
@@ -45,16 +46,28 @@ namespace DingSDK
             "https://api.ding.live/v1",
         };
 
-        public string serverUrl = "";
-        public int serverIndex = 0;
+        public string ServerUrl = "";
+        public int ServerIndex = 0;
+        public SDKHooks hooks = new SDKHooks();
 
-        public string GetTemplatedServerDetails()
+        public string GetTemplatedServerUrl()
         {
-            if (!String.IsNullOrEmpty(this.serverUrl))
+            if (!String.IsNullOrEmpty(this.ServerUrl))
             {
-                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.serverUrl, "/"), new Dictionary<string, string>());
+                return Utilities.TemplateUrl(Utilities.RemoveSuffix(this.ServerUrl, "/"), new Dictionary<string, string>());
             }
-            return Utilities.TemplateUrl(SDKConfig.ServerList[this.serverIndex], new Dictionary<string, string>());
+            return Utilities.TemplateUrl(SDKConfig.ServerList[this.ServerIndex], new Dictionary<string, string>());
+        }
+
+        public ISpeakeasyHttpClient InitHooks(ISpeakeasyHttpClient client)
+        {
+            string preHooksUrl = GetTemplatedServerUrl();
+            var (postHooksUrl, postHooksClient) = this.hooks.SDKInit(preHooksUrl, client);
+            if (preHooksUrl != postHooksUrl)
+            {
+                this.ServerUrl = postHooksUrl;
+            }
+            return postHooksClient;
         }
     }
 
@@ -66,10 +79,10 @@ namespace DingSDK
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.14.1";
-        private const string _sdkGenVersion = "2.312.1";
+        private const string _sdkVersion = "0.15.0";
+        private const string _sdkGenVersion = "2.317.0";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.14.1 2.312.1 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.15.0 2.317.0 1.0.0 DingSDK";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -114,11 +127,16 @@ namespace DingSDK
 
             SDKConfiguration = new SDKConfig()
             {
-                serverIndex = _serverIndex,
-                serverUrl = _serverUrl
+                ServerIndex = _serverIndex,
+                ServerUrl = _serverUrl
             };
 
+            _defaultClient = SDKConfiguration.InitHooks(_defaultClient);
+
+
             Otp = new Otp(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+
+
             Lookup = new Lookup(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
         }
     }

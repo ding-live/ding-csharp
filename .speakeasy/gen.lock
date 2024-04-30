@@ -3,21 +3,21 @@ id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
   docChecksum: 9894bd098e7dd9f81402a9c6ea0a6ea0
   docVersion: 1.0.0
-  speakeasyVersion: 1.271.0
-  generationVersion: 2.312.1
-  releaseVersion: 0.14.1
-  configChecksum: 2963ff59c8451e731a4459c051ddc88c
+  speakeasyVersion: 1.277.0
+  generationVersion: 2.317.0
+  releaseVersion: 0.15.0
+  configChecksum: 3115cf7bcf590b98e788095c9e93f7e3
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
-    core: 3.7.0
+    core: 3.8.0
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.83.4
     globalServerURLs: 2.82.3
-    responseFormat: 0.0.1
+    responseFormat: 0.0.2
 generatedFiles:
   - DingSDK/Otp.cs
   - DingSDK/Lookup.cs
@@ -33,7 +33,7 @@ generatedFiles:
   - DingSDK/Utils/IsoDateTimeSerializer.cs
   - DingSDK/Utils/RequestBodySerializer.cs
   - DingSDK/Utils/ResponseBodyDeserializer.cs
-  - DingSDK/Utils/SecuritySerializer.cs
+  - DingSDK/Utils/SecurityMetadata.cs
   - DingSDK/Utils/SpeakeasyHttpClient.cs
   - DingSDK/Utils/SpeakeasyMetadata.cs
   - DingSDK/Utils/URLBuilder.cs
@@ -93,3 +93,5 @@ generatedFiles:
   - docs/sdks/lookup/README.md
   - USAGE.md
   - .gitattributes
+  - DingSDK/Hooks/SDKHooks.cs
+  - DingSDK/Hooks/HookTypes.cs
