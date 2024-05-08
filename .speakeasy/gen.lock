@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
-  docChecksum: 9894bd098e7dd9f81402a9c6ea0a6ea0
+  docChecksum: cc5222e7ad6b4dd1fdcb132656060fd6
   docVersion: 1.0.0
-  speakeasyVersion: 1.277.8
-  generationVersion: 2.319.10
-  releaseVersion: 0.15.1
-  configChecksum: 19b7992ed895a89a7a683bfa0b3bbc9b
+  speakeasyVersion: 1.283.1
+  generationVersion: 2.324.0
+  releaseVersion: 0.15.2
+  configChecksum: e210af694cc18dd6243f7eae49010a2a
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
@@ -17,7 +17,7 @@ features:
     flattening: 2.81.2
     globalSecurity: 2.83.4
     globalServerURLs: 2.82.3
-    responseFormat: 0.0.2
+    responseFormat: 0.0.3
 generatedFiles:
   - DingSDK/Otp.cs
   - DingSDK/Lookup.cs
