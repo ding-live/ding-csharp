@@ -13,6 +13,7 @@ namespace DingSDK
     using DingSDK.Hooks;
     using DingSDK.Models.Components;
     using DingSDK.Models.Errors;
+    using DingSDK.Utils.Retries;
     using DingSDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -48,7 +49,8 @@ namespace DingSDK
 
         public string ServerUrl = "";
         public int ServerIndex = 0;
-        public SDKHooks hooks = new SDKHooks();
+        public SDKHooks Hooks = new SDKHooks();
+        public RetryConfig? RetryConfig = null;
 
         public string GetTemplatedServerUrl()
         {
@@ -62,7 +64,7 @@ namespace DingSDK
         public ISpeakeasyHttpClient InitHooks(ISpeakeasyHttpClient client)
         {
             string preHooksUrl = GetTemplatedServerUrl();
-            var (postHooksUrl, postHooksClient) = this.hooks.SDKInit(preHooksUrl, client);
+            var (postHooksUrl, postHooksClient) = this.Hooks.SDKInit(preHooksUrl, client);
             if (preHooksUrl != postHooksUrl)
             {
                 this.ServerUrl = postHooksUrl;
@@ -79,10 +81,10 @@ namespace DingSDK
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.15.2";
-        private const string _sdkGenVersion = "2.324.0";
+        private const string _sdkVersion = "0.16.0";
+        private const string _sdkGenVersion = "2.329.0";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.15.2 2.324.0 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.16.0 2.329.0 1.0.0 DingSDK";
         private string _serverUrl = "";
         private int _serverIndex = 0;
         private ISpeakeasyHttpClient _defaultClient;
@@ -90,7 +92,7 @@ namespace DingSDK
         public IOtp Otp { get; private set; }
         public ILookup Lookup { get; private set; }
 
-        public Ding(Security? security = null, Func<Security>? securitySource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null)
+        public Ding(Security? security = null, Func<Security>? securitySource = null, int? serverIndex = null, string? serverUrl = null, Dictionary<string, string>? urlParams = null, ISpeakeasyHttpClient? client = null, RetryConfig? retryConfig = null)
         {
             if (serverIndex != null)
             {
@@ -128,7 +130,8 @@ namespace DingSDK
             SDKConfiguration = new SDKConfig()
             {
                 ServerIndex = _serverIndex,
-                ServerUrl = _serverUrl
+                ServerUrl = _serverUrl,
+                RetryConfig = retryConfig
             };
 
             _defaultClient = SDKConfiguration.InitHooks(_defaultClient);

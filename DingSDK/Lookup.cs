@@ -14,6 +14,7 @@ namespace DingSDK
     using DingSDK.Models.Components;
     using DingSDK.Models.Errors;
     using DingSDK.Models.Requests;
+    using DingSDK.Utils.Retries;
     using DingSDK.Utils;
     using Newtonsoft.Json;
     using System.Collections.Generic;
@@ -41,10 +42,10 @@ namespace DingSDK
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.15.2";
-        private const string _sdkGenVersion = "2.324.0";
+        private const string _sdkVersion = "0.16.0";
+        private const string _sdkGenVersion = "2.329.0";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.15.2 2.324.0 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.16.0 2.329.0 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _defaultClient;
         private Func<Security>? _securitySource;
@@ -78,7 +79,8 @@ namespace DingSDK
 
             var hookCtx = new HookContext("lookup", null, _securitySource);
 
-            httpRequest = await this.SDKConfiguration.hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+            httpRequest = await this.SDKConfiguration.Hooks.BeforeRequestAsync(new BeforeRequestContext(hookCtx), httpRequest);
+
             HttpResponseMessage httpResponse;
             try
             {
@@ -87,7 +89,7 @@ namespace DingSDK
 
                 if (_statusCode == 400 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
-                    var _httpResponse = await this.SDKConfiguration.hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
+                    var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
                     {
                         httpResponse = _httpResponse;
@@ -96,7 +98,7 @@ namespace DingSDK
             }
             catch (Exception error)
             {
-                var _httpResponse = await this.SDKConfiguration.hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
+                var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), null, error);
                 if (_httpResponse != null)
                 {
                     httpResponse = _httpResponse;
@@ -107,7 +109,7 @@ namespace DingSDK
                 }
             }
 
-            httpResponse = await this.SDKConfiguration.hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
+            httpResponse = await this.SDKConfiguration.Hooks.AfterSuccessAsync(new AfterSuccessContext(hookCtx), httpResponse);
 
             var contentType = httpResponse.Content.Headers.ContentType?.MediaType;
             int responseStatusCode = (int)httpResponse.StatusCode;
