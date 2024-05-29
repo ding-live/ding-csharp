@@ -35,6 +35,12 @@ namespace DingSDK.Models.Components
         public string? CallbackUrl { get; set; }
 
         /// <summary>
+        /// A unique, user-defined identifier that will be included in webhook events
+        /// </summary>
+        [JsonProperty("correlation_id")]
+        public string? CorrelationId { get; set; }
+
+        /// <summary>
         /// Your customer UUID, which can be found in the API settings in the dashboard.
         /// </summary>
         [JsonProperty("customer_uuid")]
