@@ -80,13 +80,13 @@ namespace DingSDK
         public SDKConfig SDKConfiguration { get; private set; }
 
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.17.0";
-        private const string _sdkGenVersion = "2.338.1";
+        private const string _sdkVersion = "0.17.1";
+        private const string _sdkGenVersion = "2.338.5";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.17.0 2.338.1 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.17.1 2.338.5 1.0.0 DingSDK";
         private string _serverUrl = "";
         private int _serverIndex = 0;
-        private ISpeakeasyHttpClient _defaultClient;
+        private ISpeakeasyHttpClient _client;
         private Func<Security>? _securitySource;
         public IOtp Otp { get; private set; }
         public ILookup Lookup { get; private set; }
@@ -111,7 +111,7 @@ namespace DingSDK
                 _serverUrl = serverUrl;
             }
 
-            _defaultClient = new SpeakeasyHttpClient(client);
+            _client = client ?? new SpeakeasyHttpClient();
 
             if(securitySource != null)
             {
@@ -133,13 +133,13 @@ namespace DingSDK
                 RetryConfig = retryConfig
             };
 
-            _defaultClient = SDKConfiguration.InitHooks(_defaultClient);
+            _client = SDKConfiguration.InitHooks(_client);
 
 
-            Otp = new Otp(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Otp = new Otp(_client, _securitySource, _serverUrl, SDKConfiguration);
 
 
-            Lookup = new Lookup(_defaultClient, _securitySource, _serverUrl, SDKConfiguration);
+            Lookup = new Lookup(_client, _securitySource, _serverUrl, SDKConfiguration);
         }
     }
 }
