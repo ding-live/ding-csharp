@@ -1,24 +1,20 @@
-# Ding C# SDK
+# DingSDK
 
-The Ding C# library provides convenient access to the Ding API from applications written in C#.
+<div align="left">
+    <a href="https://speakeasyapi.dev/"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
+    <a href="https://opensource.org/licenses/MIT">
+        <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
+    </a>
+</div>
 
-<!-- Start SDK Installation [installation] -->
-## SDK Installation
 
-### NuGet
+<!-- Start Installation [installation] -->
+## Installation
 
 ```bash
 dotnet add package DingSDK
 ```
-
-### Locally
-
-```bash
-dotnet add reference path/to/DingSDK.csproj
-```
-<!-- End SDK Installation [installation] -->
-
-## SDK Example Usage
+<!-- End Installation [installation] -->
 
 <!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
@@ -97,17 +93,58 @@ var res = await sdk.Otp.RetryAsync(req);
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [Otp](docs/sdks/otp/README.md)
-
-* [Check](docs/sdks/otp/README.md#check) - Check a code
-* [CreateAuthentication](docs/sdks/otp/README.md#createauthentication) - Send a code
-* [Feedback](docs/sdks/otp/README.md#feedback) - Send feedback
-* [Retry](docs/sdks/otp/README.md#retry) - Perform a retry
-
-### [Lookup](docs/sdks/lookup/README.md)
-
-* [Lookup](docs/sdks/lookup/README.md#lookup) - Perform a phone number lookup
+- [Ding SDK](https:/github.com/ding-live/ding-csharp/blob/main/github/workspace/repo/docs/sdks/ding/README.md#available-operations)
+- [Otp](https:/github.com/ding-live/ding-csharp/blob/main/github/workspace/repo/docs/sdks/otp/README.md#available-operations)
+- [Lookup](https:/github.com/ding-live/ding-csharp/blob/main/github/workspace/repo/docs/sdks/lookup/README.md#available-operations)
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
+| DingSDK.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
+
+### Example
+
+```csharp
+using DingSDK;
+using DingSDK.Models.Components;
+using System;
+using DingSDK.Models.Errors;
+
+var sdk = new Ding(security: new Security() {
+        APIKey = "YOUR_API_KEY",
+    });
+
+CreateCheckRequest req = new CreateCheckRequest() {
+    AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
+    CheckCode = "123456",
+    CustomerUuid = "8f1196d5-806e-4b71-9b24-5f96ec052808",
+};
+
+try
+{
+    var res = await sdk.Otp.CheckAsync(req);
+    // handle response
+}
+catch (Exception ex)
+{
+    if (ex is ErrorResponse)
+    {
+        // handle exception
+    }
+    else if (ex is DingSDK.Models.Errors.SDKException)
+    {
+        // handle exception
+    }
+}
+
+```
+<!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection
@@ -160,65 +197,4 @@ var res = await sdk.Otp.CheckAsync(req);
 ```
 <!-- End Authentication [security] -->
 
-<!-- Start Error Handling [errors] -->
-## Error Handling
-
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
-
-| Error Object                        | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
-| DingSDK.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
-
-### Example
-
-```csharp
-using DingSDK;
-using DingSDK.Models.Components;
-using System;
-using DingSDK.Models.Errors;
-
-var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
-
-CreateCheckRequest req = new CreateCheckRequest() {
-    AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
-    CheckCode = "123456",
-    CustomerUuid = "8f1196d5-806e-4b71-9b24-5f96ec052808",
-};
-
-try
-{
-    var res = await sdk.Otp.CheckAsync(req);
-    // handle response
-}
-catch (Exception ex)
-{
-    if (ex is ErrorResponse)
-    {
-        // handle exception
-    }
-    else if (ex is DingSDK.Models.Errors.SDKException)
-    {
-        // handle exception
-    }
-}
-
-```
-<!-- End Error Handling [errors] -->
-
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-
-# Development
-
-## Maturity
-
-This SDK is in beta, and there may be breaking changes between versions without a major version update. Therefore, we recommend pinning usage
-to a specific package version. This way, you can install the same version each time without breaking changes unless you are intentionally
-looking for the latest version.
-
-## Contributions
-
-While we value open-source contributions to this SDK, this library is generated programmatically.
-Feel free to open a PR or a Github issue as a proof of concept and we'll do our best to include it in a future release!
