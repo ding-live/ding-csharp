@@ -1,20 +1,5 @@
 # DingSDK
 
-<div align="left">
-    <a href="https://speakeasyapi.dev/"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
-    <a href="https://opensource.org/licenses/MIT">
-        <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
-    </a>
-</div>
-
-
-<!-- Start Installation [installation] -->
-## Installation
-
-```bash
-dotnet add package DingSDK
-```
-<!-- End Installation [installation] -->
 
 <!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
@@ -89,14 +74,6 @@ var res = await sdk.Otp.RetryAsync(req);
 // handle response
 ```
 <!-- End SDK Example Usage [usage] -->
-
-<!-- Start Available Resources and Operations [operations] -->
-## Available Resources and Operations
-
-- [Ding SDK](https:/github.com/ding-live/ding-csharp/blob/main/github/workspace/repo/docs/sdks/ding/README.md#available-operations)
-- [Otp](https:/github.com/ding-live/ding-csharp/blob/main/github/workspace/repo/docs/sdks/otp/README.md#available-operations)
-- [Lookup](https:/github.com/ding-live/ding-csharp/blob/main/github/workspace/repo/docs/sdks/lookup/README.md#available-operations)
-<!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
