@@ -17,8 +17,8 @@ Perform a phone number lookup
 
 ```csharp
 using DingSDK;
-using DingSDK.Models.Components;
 using DingSDK.Models.Requests;
+using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
         APIKey = "YOUR_API_KEY",
