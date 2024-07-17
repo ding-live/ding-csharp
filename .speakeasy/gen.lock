@@ -3,17 +3,17 @@ id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
   docChecksum: 85248a8dd6a5cd6fea1b82dfc30249e9
   docVersion: 1.0.0
-  speakeasyVersion: 1.331.0
-  generationVersion: 2.365.0
-  releaseVersion: 0.17.6
-  configChecksum: 62561cf1474baf084e539354fd43a290
+  speakeasyVersion: 1.337.1
+  generationVersion: 2.373.2
+  releaseVersion: 0.17.7
+  configChecksum: 37376666571b0645fd5ae0741aa02705
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
     additionalDependencies: 0.1.0
-    core: 3.9.9
+    core: 3.9.10
     examples: 2.81.3
     flattening: 2.81.2
     globalSecurity: 2.83.4
@@ -103,3 +103,4 @@ generatedFiles:
   - .gitattributes
   - DingSDK/Hooks/SDKHooks.cs
   - DingSDK/Hooks/HookTypes.cs
+  - CONTRIBUTING.md
