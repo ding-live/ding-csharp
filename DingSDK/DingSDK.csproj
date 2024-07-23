@@ -1,24 +1,37 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>DingSDK</PackageId>
-    <Version>0.17.7</Version>
-    <Authors>Ding</Authors>
+    <Version>0.17.8</Version>
     <TargetFramework>net5.0</TargetFramework>
+    <Authors>Ding</Authors>
+    <Copyright>Copyright (c) Ding 2024</Copyright>
+    <RepositoryUrl>https://github.com/ding-live/ding-csharp.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <Nullable>enable</Nullable>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>1591</NoWarn>
-    <RepositoryUrl>https://github.com/ding-live/ding-csharp</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\NUGET.md" Pack="true" PackagePath="README.md"/>
     <None Include="..\LICENSE.md" Pack="true" PackagePath="\"/>
     <None Include="..\docs\**\*" Pack="true" PackagePath="\docs"  CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
 
+  <ItemGroup>
     <PackageReference Include="newtonsoft.json" Version="13.0.3" />
     <PackageReference Include="nodatime" Version="3.1.9" />
   </ItemGroup>
+
 </Project>
