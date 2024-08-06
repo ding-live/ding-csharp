@@ -431,3 +431,13 @@ Based on:
 - [csharp v0.17.9] .
 ### Releases
 - [NuGet v0.17.9] https://www.nuget.org/packages/DingSDK/0.17.9 - .
+
+## 2024-08-06 00:18:39
+### Changes
+Based on:
+- OpenAPI Doc 1.0.0 
+- Speakeasy CLI 1.352.2 (2.385.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [csharp v0.17.10] .
+### Releases
+- [NuGet v0.17.10] https://www.nuget.org/packages/DingSDK/0.17.10 - .
