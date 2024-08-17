@@ -37,6 +37,8 @@ var res = await sdk.Otp.CheckAsync(req);
 // handle response
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
@@ -77,6 +79,8 @@ var res = await sdk.Otp.CreateAuthenticationAsync(req);
 
 // handle response
 ```
+
+
 
 ### Parameters
 
@@ -120,6 +124,8 @@ var res = await sdk.Otp.FeedbackAsync(req);
 // handle response
 ```
 
+
+
 ### Parameters
 
 | Parameter                                                     | Type                                                          | Required                                                      | Description                                                   |
@@ -159,6 +165,8 @@ var res = await sdk.Otp.RetryAsync(req);
 
 // handle response
 ```
+
+
 
 ### Parameters
 
