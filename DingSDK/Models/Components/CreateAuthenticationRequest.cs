@@ -71,7 +71,7 @@ namespace DingSDK.Models.Components
         public string? Ip { get; set; }
 
         /// <summary>
-        /// Whether the user is a returning user on your app.
+        /// This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to <a href="/guides/prevent-fraud#signals">Signals</a>.
         /// </summary>
         [JsonProperty("is_returning_user")]
         public bool? IsReturningUser { get; set; }

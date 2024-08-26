@@ -38,10 +38,10 @@ var res = await sdk.Lookup.LookupAsync(
 | `CustomerUuid`     | *string*           | :heavy_check_mark: | N/A                |
 | `PhoneNumber`      | *string*           | :heavy_check_mark: | N/A                |
 
-
 ### Response
 
 **[Models.Requests.LookupResponse](../../Models/Requests/LookupResponse.md)**
+
 ### Errors
 
 | Error Object                        | Status Code                         | Content Type                        |
