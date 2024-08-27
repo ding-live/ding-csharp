@@ -43,16 +43,17 @@ var res = await sdk.Otp.CheckAsync(req);
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `request`                                                           | [CreateCheckRequest](../../Models/Components/CreateCheckRequest.md) | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 
-
 ### Response
 
 **[CheckResponse](../../Models/Requests/CheckResponse.md)**
+
 ### Errors
 
 | Error Object                        | Status Code                         | Content Type                        |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
 | DingSDK.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
+
 
 ## CreateAuthentication
 
@@ -84,16 +85,17 @@ var res = await sdk.Otp.CreateAuthenticationAsync(req);
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | `request`                                                                             | [CreateAuthenticationRequest](../../Models/Components/CreateAuthenticationRequest.md) | :heavy_check_mark:                                                                    | The request object to use for the request.                                            |
 
-
 ### Response
 
 **[Models.Requests.CreateAuthenticationResponse](../../Models/Requests/CreateAuthenticationResponse.md)**
+
 ### Errors
 
 | Error Object                        | Status Code                         | Content Type                        |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
 | DingSDK.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
+
 
 ## Feedback
 
@@ -126,15 +128,16 @@ var res = await sdk.Otp.FeedbackAsync(req);
 | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
 | `request`                                                     | [FeedbackRequest](../../Models/Components/FeedbackRequest.md) | :heavy_check_mark:                                            | The request object to use for the request.                    |
 
-
 ### Response
 
 **[Models.Requests.FeedbackResponse](../../Models/Requests/FeedbackResponse.md)**
+
 ### Errors
 
 | Error Object                       | Status Code                        | Content Type                       |
 | ---------------------------------- | ---------------------------------- | ---------------------------------- |
 | DingSDK.Models.Errors.SDKException | 4xx-5xx                            | */*                                |
+
 
 ## Retry
 
@@ -166,10 +169,10 @@ var res = await sdk.Otp.RetryAsync(req);
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `request`                                                                           | [RetryAuthenticationRequest](../../Models/Components/RetryAuthenticationRequest.md) | :heavy_check_mark:                                                                  | The request object to use for the request.                                          |
 
-
 ### Response
 
 **[RetryResponse](../../Models/Requests/RetryResponse.md)**
+
 ### Errors
 
 | Error Object                        | Status Code                         | Content Type                        |
