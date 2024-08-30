@@ -7,14 +7,16 @@ The Ding C# library provides convenient access to the Ding API from applications
 
 ### NuGet
 
+To add the [NuGet](https://www.nuget.org/) package to a .NET project:
 ```bash
 dotnet add package DingSDK
 ```
 
 ### Locally
 
+To add a reference to a local instance of the SDK in a .NET project:
 ```bash
-dotnet add reference path/to/DingSDK.csproj
+dotnet add reference DingSDK/DingSDK.csproj
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -33,8 +35,8 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 CreateAuthenticationRequest req = new CreateAuthenticationRequest() {
     CustomerUuid = "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
@@ -56,8 +58,8 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 CreateCheckRequest req = new CreateCheckRequest() {
     AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
@@ -80,8 +82,8 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 RetryAuthenticationRequest req = new RetryAuthenticationRequest() {
     AuthenticationUuid = "a74ee547-564d-487a-91df-37fb25413a91",
@@ -145,8 +147,8 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 CreateCheckRequest req = new CreateCheckRequest() {
     AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
@@ -179,18 +181,19 @@ using System;
 using DingSDK.Models.Errors;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
-
-CreateCheckRequest req = new CreateCheckRequest() {
-    AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
-    CheckCode = "123456",
-    CustomerUuid = "8f1196d5-806e-4b71-9b24-5f96ec052808",
-};
+    APIKey = "YOUR_API_KEY",
+});
 
 try
 {
+    CreateCheckRequest req = new CreateCheckRequest() {
+        AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
+        CheckCode = "123456",
+        CustomerUuid = "8f1196d5-806e-4b71-9b24-5f96ec052808",
+    };
+
     var res = await sdk.Otp.CheckAsync(req);
+
     // handle response
 }
 catch (Exception ex)
@@ -204,9 +207,25 @@ catch (Exception ex)
         // handle exception
     }
 }
-
 ```
 <!-- End Error Handling [errors] -->
+
+<!-- Start Summary [summary] -->
+## Summary
+
+Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Authentication](#authentication)
+<!-- End Table of Contents [toc] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
