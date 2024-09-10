@@ -9,8 +9,8 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 CreateAuthenticationRequest req = new CreateAuthenticationRequest() {
     CustomerUuid = "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
@@ -32,8 +32,8 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 CreateCheckRequest req = new CreateCheckRequest() {
     AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
@@ -56,8 +56,8 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 RetryAuthenticationRequest req = new RetryAuthenticationRequest() {
     AuthenticationUuid = "a74ee547-564d-487a-91df-37fb25413a91",
