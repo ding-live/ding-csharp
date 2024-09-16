@@ -1,33 +1,62 @@
 lockVersion: 2.0.0
 id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
-  docChecksum: 85248a8dd6a5cd6fea1b82dfc30249e9
+  docChecksum: c2a5d8222f4117f238343d6187ef2751
   docVersion: 1.0.0
-  speakeasyVersion: 1.352.2
-  generationVersion: 2.385.2
-  releaseVersion: 0.17.10
-  configChecksum: 9fc0a21552f5c7976782158d803acfa8
+  speakeasyVersion: 1.396.9
+  generationVersion: 2.415.7
+  releaseVersion: 0.17.11
+  configChecksum: 934e5ec9ef99d796c554dc5b029b836d
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
     additionalDependencies: 0.1.0
-    core: 3.9.13
+    core: 3.9.19
     examples: 2.81.3
     flattening: 2.81.2
-    globalSecurity: 2.83.5
+    globalSecurity: 2.83.6
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.3
     intellisenseMarkdownSupport: 0.1.0
     responseFormat: 0.0.4
     sdkHooks: 0.1.0
 generatedFiles:
-  - DingSDK/Otp.cs
-  - DingSDK/Lookup.cs
-  - DingSDK/Ding.cs
-  - global.json
+  - .gitattributes
+  - CONTRIBUTING.md
   - DingSDK.sln
+  - DingSDK/Ding.cs
+  - DingSDK/DingSDK.csproj
+  - DingSDK/Hooks/HookTypes.cs
+  - DingSDK/Hooks/SDKHooks.cs
+  - DingSDK/Lookup.cs
+  - DingSDK/Models/Components/CreateAuthenticationRequest.cs
+  - DingSDK/Models/Components/CreateAuthenticationResponse.cs
+  - DingSDK/Models/Components/CreateCheckRequest.cs
+  - DingSDK/Models/Components/CreateCheckResponse.cs
+  - DingSDK/Models/Components/CreateCheckResponseStatus.cs
+  - DingSDK/Models/Components/DeviceType.cs
+  - DingSDK/Models/Components/FeedbackRequest.cs
+  - DingSDK/Models/Components/FeedbackRequestStatus.cs
+  - DingSDK/Models/Components/FeedbackResponse.cs
+  - DingSDK/Models/Components/LineType.cs
+  - DingSDK/Models/Components/LookupResponse.cs
+  - DingSDK/Models/Components/RetryAuthenticationRequest.cs
+  - DingSDK/Models/Components/RetryAuthenticationResponse.cs
+  - DingSDK/Models/Components/RetryAuthenticationResponseStatus.cs
+  - DingSDK/Models/Components/Security.cs
+  - DingSDK/Models/Components/Status.cs
+  - DingSDK/Models/Errors/Code.cs
+  - DingSDK/Models/Errors/ErrorResponse.cs
+  - DingSDK/Models/Errors/SDKException.cs
+  - DingSDK/Models/Requests/CheckResponse.cs
+  - DingSDK/Models/Requests/CreateAuthenticationResponse.cs
+  - DingSDK/Models/Requests/FeedbackResponse.cs
+  - DingSDK/Models/Requests/LookupRequest.cs
+  - DingSDK/Models/Requests/LookupResponse.cs
+  - DingSDK/Models/Requests/RetryResponse.cs
+  - DingSDK/Otp.cs
   - DingSDK/Utils/AnyDeserializer.cs
   - DingSDK/Utils/BigIntStrConverter.cs
   - DingSDK/Utils/DecimalStrConverter.cs
@@ -45,62 +74,78 @@ generatedFiles:
   - DingSDK/Utils/SpeakeasyMetadata.cs
   - DingSDK/Utils/URLBuilder.cs
   - DingSDK/Utils/Utilities.cs
-  - DingSDK/DingSDK.csproj
-  - DingSDK/Models/Errors/SDKException.cs
-  - DingSDK/Models/Requests/CheckResponse.cs
-  - DingSDK/Models/Requests/CreateAuthenticationResponse.cs
-  - DingSDK/Models/Requests/FeedbackResponse.cs
-  - DingSDK/Models/Requests/RetryResponse.cs
-  - DingSDK/Models/Requests/LookupRequest.cs
-  - DingSDK/Models/Requests/LookupResponse.cs
-  - DingSDK/Models/Components/CreateCheckResponseStatus.cs
-  - DingSDK/Models/Components/CreateCheckResponse.cs
-  - DingSDK/Models/Components/CreateCheckRequest.cs
-  - DingSDK/Models/Components/Status.cs
-  - DingSDK/Models/Components/CreateAuthenticationResponse.cs
-  - DingSDK/Models/Components/DeviceType.cs
-  - DingSDK/Models/Components/CreateAuthenticationRequest.cs
-  - DingSDK/Models/Components/FeedbackResponse.cs
-  - DingSDK/Models/Components/FeedbackRequestStatus.cs
-  - DingSDK/Models/Components/FeedbackRequest.cs
-  - DingSDK/Models/Components/RetryAuthenticationResponseStatus.cs
-  - DingSDK/Models/Components/RetryAuthenticationResponse.cs
-  - DingSDK/Models/Components/RetryAuthenticationRequest.cs
-  - DingSDK/Models/Components/LineType.cs
-  - DingSDK/Models/Components/LookupResponse.cs
-  - DingSDK/Models/Components/Security.cs
-  - DingSDK/Models/Errors/Code.cs
-  - DingSDK/Models/Errors/ErrorResponse.cs
+  - NUGET.md
+  - USAGE.md
+  - docs/Models/Components/CreateAuthenticationRequest.md
+  - docs/Models/Components/CreateAuthenticationResponse.md
+  - docs/Models/Components/CreateCheckRequest.md
+  - docs/Models/Components/CreateCheckResponse.md
+  - docs/Models/Components/CreateCheckResponseStatus.md
+  - docs/Models/Components/DeviceType.md
+  - docs/Models/Components/FeedbackRequest.md
+  - docs/Models/Components/FeedbackRequestStatus.md
+  - docs/Models/Components/FeedbackResponse.md
+  - docs/Models/Components/LineType.md
+  - docs/Models/Components/LookupResponse.md
+  - docs/Models/Components/RetryAuthenticationRequest.md
+  - docs/Models/Components/RetryAuthenticationResponse.md
+  - docs/Models/Components/RetryAuthenticationResponseStatus.md
+  - docs/Models/Components/Security.md
+  - docs/Models/Components/Status.md
+  - docs/Models/Errors/Code.md
+  - docs/Models/Errors/ErrorResponse.md
   - docs/Models/Requests/CheckResponse.md
   - docs/Models/Requests/CreateAuthenticationResponse.md
   - docs/Models/Requests/FeedbackResponse.md
-  - docs/Models/Requests/RetryResponse.md
   - docs/Models/Requests/LookupRequest.md
   - docs/Models/Requests/LookupResponse.md
-  - docs/Models/Components/CreateCheckResponseStatus.md
-  - docs/Models/Components/CreateCheckResponse.md
-  - docs/Models/Components/CreateCheckRequest.md
-  - docs/Models/Components/Status.md
-  - docs/Models/Components/CreateAuthenticationResponse.md
-  - docs/Models/Components/DeviceType.md
-  - docs/Models/Components/CreateAuthenticationRequest.md
-  - docs/Models/Components/FeedbackResponse.md
-  - docs/Models/Components/FeedbackRequestStatus.md
-  - docs/Models/Components/FeedbackRequest.md
-  - docs/Models/Components/RetryAuthenticationResponseStatus.md
-  - docs/Models/Components/RetryAuthenticationResponse.md
-  - docs/Models/Components/RetryAuthenticationRequest.md
-  - docs/Models/Components/LineType.md
-  - docs/Models/Components/LookupResponse.md
-  - docs/Models/Components/Security.md
-  - docs/Models/Errors/Code.md
-  - docs/Models/Errors/ErrorResponse.md
+  - docs/Models/Requests/RetryResponse.md
   - docs/sdks/ding/README.md
-  - docs/sdks/otp/README.md
   - docs/sdks/lookup/README.md
-  - NUGET.md
-  - USAGE.md
-  - .gitattributes
-  - DingSDK/Hooks/SDKHooks.cs
-  - DingSDK/Hooks/HookTypes.cs
-  - CONTRIBUTING.md
+  - docs/sdks/otp/README.md
+  - global.json
+examples:
+  check:
+    speakeasy-default-check:
+      requestBody:
+        application/json: {"authentication_uuid": "e0e7b0e9-739d-424b-922f-1c2cb48ab077", "check_code": "123456", "customer_uuid": "8f1196d5-806e-4b71-9b24-5f96ec052808"}
+      responses:
+        "200":
+          application/json: {"status": "valid"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  create-authentication:
+    speakeasy-default-create-authentication:
+      requestBody:
+        application/json: {"customer_uuid": "c9f826e0-deca-41ec-871f-ecd6e8efeb46", "phone_number": "+1234567890"}
+      responses:
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  feedback:
+    speakeasy-default-feedback:
+      requestBody:
+        application/json: {"customer_uuid": "c0c405fa-6bcb-4094-9430-7d6e2428ff23", "phone_number": "+1234567890", "status": "onboarded"}
+      responses:
+        "200":
+          application/json: {"uuid": "123e4567-e89b-12d3-a456-4266141740a0"}
+        default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  retry:
+    speakeasy-default-retry:
+      responses:
+        "200":
+          application/json: {"remaining_retry": 3, "status": "approved"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+  lookup:
+    speakeasy-default-lookup:
+      parameters:
+        path:
+          phone_number: "<value>"
+        header:
+          customer-uuid: "6e93aa15-9177-4d09-8395-b69ce50db1c8"
+      responses:
+        "200":
+          application/json: {"carrier": "AT&T", "country_code": "US", "line_type": "Mobile", "mcc": "310", "mnc": "410", "phone_number": "+1234567890"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
