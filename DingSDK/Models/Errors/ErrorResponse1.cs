@@ -14,7 +14,7 @@ namespace DingSDK.Models.Errors
     using Newtonsoft.Json;
     using System;
     
-    public class ErrorResponse : Exception
+    public class ErrorResponse1 : Exception
     {
 
         /// <summary>
