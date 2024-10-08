@@ -14,11 +14,11 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 CreateAuthenticationRequest req = new CreateAuthenticationRequest() {
-    CustomerUuid = "c9f826e0-deca-41ec-871f-ecd6e8efeb46",
+    CustomerUuid = "cf2edc1c-7fc6-48fb-86da-b7508c6b7b71",
     PhoneNumber = "+1234567890",
 };
 
@@ -37,13 +37,13 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 CreateCheckRequest req = new CreateCheckRequest() {
-    AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
+    AuthenticationUuid = "eebe792b-2fcc-44a0-87f1-650e79259e02",
     CheckCode = "123456",
-    CustomerUuid = "8f1196d5-806e-4b71-9b24-5f96ec052808",
+    CustomerUuid = "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
 };
 
 var res = await sdk.Otp.CheckAsync(req);
@@ -61,12 +61,12 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 RetryAuthenticationRequest req = new RetryAuthenticationRequest() {
-    AuthenticationUuid = "a74ee547-564d-487a-91df-37fb25413a91",
-    CustomerUuid = "3c8b3a46-881e-4cdd-93a6-f7f238bf020a",
+    AuthenticationUuid = "a4e4548a-1f7b-451a-81cb-a68ed5aff3b0",
+    CustomerUuid = "28532118-1b33-420a-b57b-648c9bf85fee",
 };
 
 var res = await sdk.Otp.RetryAsync(req);
@@ -78,12 +78,23 @@ var res = await sdk.Otp.RetryAsync(req);
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or thow an exception.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate type.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or throw an exception.
 
-| Error Object                        | Status Code                         | Content Type                        |
+By default, an API error will raise a `DingSDK.Models.Errors.SDKException` exception, which has the following properties:
+
+| Property      | Type                  | Description           |
+|---------------|-----------------------|-----------------------|
+| `Message`     | *string*              | The error message     |
+| `StatusCode`  | *int*                 | The HTTP status code  |
+| `RawResponse` | *HttpResponseMessage* | The raw HTTP response |
+| `Body`        | *string*              | The response content  |
+
+When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `CheckAsync` method throws the following exceptions:
+
+| Error Type                          | Status Code                         | Content Type                        |
 | ----------------------------------- | ----------------------------------- | ----------------------------------- |
 | DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
-| DingSDK.Models.Errors.SDKException  | 4xx-5xx                             | */*                                 |
+| DingSDK.Models.Errors.SDKException  | 4XX, 5XX                            | \*/\*                               |
 
 ### Example
 
@@ -94,32 +105,34 @@ using System;
 using DingSDK.Models.Errors;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
-
-CreateCheckRequest req = new CreateCheckRequest() {
-    AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
-    CheckCode = "123456",
-    CustomerUuid = "8f1196d5-806e-4b71-9b24-5f96ec052808",
-};
+    APIKey = "YOUR_API_KEY",
+});
 
 try
 {
+    CreateCheckRequest req = new CreateCheckRequest() {
+        AuthenticationUuid = "eebe792b-2fcc-44a0-87f1-650e79259e02",
+        CheckCode = "123456",
+        CustomerUuid = "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
+    };
+
     var res = await sdk.Otp.CheckAsync(req);
+
     // handle response
 }
 catch (Exception ex)
 {
-    if (ex is ErrorResponse)
+    if (ex is Models.Errors.ErrorResponse)
     {
-        // handle exception
+        // Handle exception data
+        throw;
     }
     else if (ex is DingSDK.Models.Errors.SDKException)
     {
-        // handle exception
+        // Handle default exception
+        throw;
     }
 }
-
 ```
 <!-- End Error Handling [errors] -->
 
@@ -159,13 +172,13 @@ using DingSDK;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
-        APIKey = "YOUR_API_KEY",
-    });
+    APIKey = "YOUR_API_KEY",
+});
 
 CreateCheckRequest req = new CreateCheckRequest() {
-    AuthenticationUuid = "e0e7b0e9-739d-424b-922f-1c2cb48ab077",
+    AuthenticationUuid = "eebe792b-2fcc-44a0-87f1-650e79259e02",
     CheckCode = "123456",
-    CustomerUuid = "8f1196d5-806e-4b71-9b24-5f96ec052808",
+    CustomerUuid = "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
 };
 
 var res = await sdk.Otp.CheckAsync(req);
