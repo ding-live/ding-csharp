@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 csharp:
-  version: 0.17.10
+  version: 0.18.0
   additionalDependencies: []
   author: Ding
   clientServerStatusCodesAsErrors: true
@@ -35,3 +35,4 @@ csharp:
   packageTags: ""
   product: ""
   responseFormat: envelope
+  sourceDirectory: ""
