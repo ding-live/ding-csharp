@@ -10,7 +10,6 @@
 namespace DingSDK.Models.Requests
 {
     using DingSDK.Models.Components;
-    using DingSDK.Models.Errors;
     using DingSDK.Utils;
     using System.Net.Http;
     using System;
@@ -26,7 +25,7 @@ namespace DingSDK.Models.Requests
         /// <summary>
         /// Bad Request
         /// </summary>
-        public ErrorResponse? ErrorResponse { get; set; }
+        public Models.Components.ErrorResponse? ErrorResponse { get; set; }
 
         /// <summary>
         /// OK
