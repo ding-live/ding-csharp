@@ -17,6 +17,7 @@ namespace DingSDK.Models.Components
     /// The status of the check. Possible values are:<br/>
     /// 
     /// <remarks>
+    ///   * `unknown` - The status is unknown.<br/>
     ///   * `valid` - The code is valid.<br/>
     ///   * `invalid` - The code is invalid.<br/>
     ///   * `without_attempt` - No attempt was sent yet, so a check cannot be completed.<br/>
@@ -26,8 +27,10 @@ namespace DingSDK.Models.Components
     /// 
     /// </remarks>
     /// </summary>
-    public enum CreateCheckResponseStatus
+    public enum CheckStatus
     {
+        [JsonProperty("unknown")]
+        Unknown,
         [JsonProperty("valid")]
         Valid,
         [JsonProperty("invalid")]
@@ -42,16 +45,16 @@ namespace DingSDK.Models.Components
         ExpiredAuth,
     }
 
-    public static class CreateCheckResponseStatusExtension
+    public static class CheckStatusExtension
     {
-        public static string Value(this CreateCheckResponseStatus value)
+        public static string Value(this CheckStatus value)
         {
             return ((JsonPropertyAttribute)value.GetType().GetMember(value.ToString())[0].GetCustomAttributes(typeof(JsonPropertyAttribute), false)[0]).PropertyName ?? value.ToString();
         }
 
-        public static CreateCheckResponseStatus ToEnum(this string value)
+        public static CheckStatus ToEnum(this string value)
         {
-            foreach(var field in typeof(CreateCheckResponseStatus).GetFields())
+            foreach(var field in typeof(CheckStatus).GetFields())
             {
                 var attributes = field.GetCustomAttributes(typeof(JsonPropertyAttribute), false);
                 if (attributes.Length == 0)
@@ -64,14 +67,14 @@ namespace DingSDK.Models.Components
                 {
                     var enumVal = field.GetValue(null);
 
-                    if (enumVal is CreateCheckResponseStatus)
+                    if (enumVal is CheckStatus)
                     {
-                        return (CreateCheckResponseStatus)enumVal;
+                        return (CheckStatus)enumVal;
                     }
                 }
             }
 
-            throw new Exception($"Unknown value {value} for enum CreateCheckResponseStatus");
+            throw new Exception($"Unknown value {value} for enum CheckStatus");
         }
     }
 

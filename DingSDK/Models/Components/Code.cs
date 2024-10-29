@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace DingSDK.Models.Errors
+namespace DingSDK.Models.Components
 {
     using DingSDK.Utils;
     using Newtonsoft.Json;
@@ -18,48 +18,52 @@ namespace DingSDK.Models.Errors
     /// </summary>
     public enum Code
     {
-        [JsonProperty("invalid_phone_number")]
-        InvalidPhoneNumber,
-        [JsonProperty("internal_server_error")]
-        InternalServerError,
-        [JsonProperty("bad_request")]
-        BadRequest,
         [JsonProperty("account_invalid")]
         AccountInvalid,
-        [JsonProperty("negative_balance")]
-        NegativeBalance,
-        [JsonProperty("invalid_line")]
-        InvalidLine,
-        [JsonProperty("unsupported_region")]
-        UnsupportedRegion,
-        [JsonProperty("invalid_auth_uuid")]
-        InvalidAuthUuid,
-        [JsonProperty("invalid_app_realm")]
-        InvalidAppRealm,
-        [JsonProperty("unsupported_app_realm_device_type")]
-        UnsupportedAppRealmDeviceType,
         [JsonProperty("app_realm_require_device_type")]
         AppRealmRequireDeviceType,
+        [JsonProperty("bad_request")]
+        BadRequest,
         [JsonProperty("blocked_number")]
         BlockedNumber,
-        [JsonProperty("invalid_app_version")]
-        InvalidAppVersion,
-        [JsonProperty("invalid_os_version")]
-        InvalidOsVersion,
-        [JsonProperty("invalid_device_model")]
-        InvalidDeviceModel,
-        [JsonProperty("invalid_device_id")]
-        InvalidDeviceId,
-        [JsonProperty("no_associated_auth_found")]
-        NoAssociatedAuthFound,
         [JsonProperty("duplicated_feedback_status")]
         DuplicatedFeedbackStatus,
+        [JsonProperty("internal_server_error")]
+        InternalServerError,
+        [JsonProperty("invalid_app_realm")]
+        InvalidAppRealm,
+        [JsonProperty("invalid_app_version")]
+        InvalidAppVersion,
+        [JsonProperty("invalid_auth_uuid")]
+        InvalidAuthUuid,
+        [JsonProperty("invalid_device_id")]
+        InvalidDeviceId,
+        [JsonProperty("invalid_device_model")]
+        InvalidDeviceModel,
         [JsonProperty("invalid_feedback_status")]
         InvalidFeedbackStatus,
+        [JsonProperty("invalid_line")]
+        InvalidLine,
+        [JsonProperty("invalid_os_version")]
+        InvalidOsVersion,
+        [JsonProperty("invalid_phone_number")]
+        InvalidPhoneNumber,
+        [JsonProperty("invalid_sender_id")]
+        InvalidSenderId,
         [JsonProperty("invalid_template_id")]
         InvalidTemplateId,
+        [JsonProperty("negative_balance")]
+        NegativeBalance,
+        [JsonProperty("no_associated_auth_found")]
+        NoAssociatedAuthFound,
         [JsonProperty("suspended_account")]
         SuspendedAccount,
+        [JsonProperty("unauthorized_sender_id")]
+        UnauthorizedSenderId,
+        [JsonProperty("unsupported_app_realm_device_type")]
+        UnsupportedAppRealmDeviceType,
+        [JsonProperty("unsupported_region")]
+        UnsupportedRegion,
     }
 
     public static class CodeExtension
