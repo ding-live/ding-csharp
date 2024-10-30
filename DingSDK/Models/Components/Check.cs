@@ -7,36 +7,38 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace DingSDK.Models.Errors
+namespace DingSDK.Models.Components
 {
-    using DingSDK.Models.Errors;
+    using DingSDK.Models.Components;
     using DingSDK.Utils;
     using Newtonsoft.Json;
     using System;
     
-    /// <summary>
-    /// Bad Request
-    /// </summary>
-    public class ErrorResponse : Exception
+    public class Check
     {
 
         /// <summary>
-        /// A machine-readable code that describes the error.
+        /// The code that was checked.
         /// </summary>
         [JsonProperty("code")]
-        public Code? Code { get; set; }
+        public string? Code { get; set; }
+
+        [JsonProperty("created_at")]
+        public DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        /// A link to the documentation that describes the error.
+        /// The ID of the check.
         /// </summary>
-        [JsonProperty("doc_url")]
-        public string? DocUrl { get; set; }
+        [JsonProperty("id")]
+        public string? Id { get; set; }
+
+        [JsonProperty("status")]
+        public CheckStatus? Status { get; set; }
 
         /// <summary>
-        /// A human-readable message that describes the error.
+        /// The type of the event.
         /// </summary>
-        [JsonProperty("message")]
-        private string? _message { get; set; }
-        public override string Message { get {return _message ?? "";} }
+        [JsonProperty("type")]
+        public AuthenticationStatusResponseType? Type { get; set; }
     }
 }
