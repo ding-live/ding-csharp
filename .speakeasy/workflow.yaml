@@ -1,0 +1,12 @@
+workflowVersion: 1.0.0
+sources:
+    my-source:
+        inputs:
+            - location: https://raw.githubusercontent.com/ding-live/openapi/main/ding.yaml
+targets:
+    DingSDK:
+        target: csharp
+        source: my-source
+        publish:
+            nuget:
+                apiKey: $NUGET_API_KEY
