@@ -1,0 +1,31 @@
+speakeasyVersion: 1.423.2
+sources:
+    my-source:
+        sourceNamespace: my-source
+        sourceRevisionDigest: sha256:d590fd70f39a4155a8ce8cc6f2d626f8e4d53d6ef7c42775ce52bb2737a439e9
+        sourceBlobDigest: sha256:408f69a3052eeaa99509ce0811301cbf4e12aab87613930f6d2fb41f94803bf5
+        tags:
+            - latest
+            - main
+targets:
+    DingSDK:
+        source: my-source
+        sourceNamespace: my-source
+        sourceRevisionDigest: sha256:d590fd70f39a4155a8ce8cc6f2d626f8e4d53d6ef7c42775ce52bb2737a439e9
+        sourceBlobDigest: sha256:408f69a3052eeaa99509ce0811301cbf4e12aab87613930f6d2fb41f94803bf5
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        my-source:
+            inputs:
+                - location: https://raw.githubusercontent.com/ding-live/openapi/main/ding.yaml
+            registry:
+                location: registry.speakeasyapi.dev/ding/ding/my-source
+    targets:
+        DingSDK:
+            target: csharp
+            source: my-source
+            publish:
+                nuget:
+                    apiKey: $NUGET_API_KEY

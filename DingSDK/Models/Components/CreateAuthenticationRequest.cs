@@ -71,10 +71,16 @@ namespace DingSDK.Models.Components
         public string? Ip { get; set; }
 
         /// <summary>
-        /// Whether the user is a returning user on your app.
+        /// This signal should do more than just confirm if a user is returning to your app; it should provide a higher level of trust, indicating that the user is genuine. For more details, refer to <a href="/guides/prevent-fraud#signals">Signals</a>.
         /// </summary>
         [JsonProperty("is_returning_user")]
         public bool? IsReturningUser { get; set; }
+
+        /// <summary>
+        /// A BCP-47 locale indicating the language the SMS should be sent to; if this is not set, the SMS will be sent to the language specified by the country code of the message. If we don&apos;t support the language set, the message will be sent in US English (en-US).
+        /// </summary>
+        [JsonProperty("locale")]
+        public string? Locale { get; set; }
 
         /// <summary>
         /// The version of the user&apos;s device operating system.
@@ -87,6 +93,12 @@ namespace DingSDK.Models.Components
         /// </summary>
         [JsonProperty("phone_number")]
         public string PhoneNumber { get; set; } = default!;
+
+        /// <summary>
+        /// The Sender ID to use when sending the message.
+        /// </summary>
+        [JsonProperty("sender_id")]
+        public string? SenderId { get; set; }
 
         /// <summary>
         /// The template id associated with the message content variant to be sent.

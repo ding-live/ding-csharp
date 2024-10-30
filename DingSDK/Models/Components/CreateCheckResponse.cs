@@ -22,20 +22,7 @@ namespace DingSDK.Models.Components
         [JsonProperty("authentication_uuid")]
         public string? AuthenticationUuid { get; set; }
 
-        /// <summary>
-        /// The status of the check. Possible values are:<br/>
-        /// 
-        /// <remarks>
-        ///   * `valid` - The code is valid.<br/>
-        ///   * `invalid` - The code is invalid.<br/>
-        ///   * `without_attempt` - No attempt was sent yet, so a check cannot be completed.<br/>
-        ///   * `rate_limited` - The authentication was rate limited and cannot be checked.<br/>
-        ///   * `already_validated` - The authentication has already been validated.<br/>
-        ///   * `expired_auth` - The authentication has expired and cannot be checked.<br/>
-        /// 
-        /// </remarks>
-        /// </summary>
         [JsonProperty("status")]
-        public CreateCheckResponseStatus? Status { get; set; }
+        public CheckStatus? Status { get; set; }
     }
 }
