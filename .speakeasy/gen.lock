@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
-  docChecksum: 0e24d2251525fd6aa2e5edcae1b0c57f
+  docChecksum: cdd98ec37d038287e527cb85bbed139b
   docVersion: 1.0.0
-  speakeasyVersion: 1.423.2
-  generationVersion: 2.442.11
-  releaseVersion: 0.18.0
-  configChecksum: 4b396f6ffc57926d2f192fd442330432
+  speakeasyVersion: 1.423.5
+  generationVersion: 2.445.1
+  releaseVersion: 0.19.0
+  configChecksum: f321689674530eb9f85d715790655d9c
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
@@ -20,6 +20,7 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.3
     intellisenseMarkdownSupport: 0.1.0
+    methodArguments: 0.1.0
     responseFormat: 0.0.4
     sdkHooks: 0.1.0
     unions: 0.2.1
@@ -45,14 +46,12 @@ generatedFiles:
   - DingSDK/Models/Components/Capability.cs
   - DingSDK/Models/Components/Check.cs
   - DingSDK/Models/Components/CheckStatus.cs
-  - DingSDK/Models/Components/Code.cs
   - DingSDK/Models/Components/CreateAuthenticationRequest.cs
   - DingSDK/Models/Components/CreateAuthenticationResponse.cs
   - DingSDK/Models/Components/CreateCheckRequest.cs
   - DingSDK/Models/Components/CreateCheckResponse.cs
   - DingSDK/Models/Components/DeliveryStatus.cs
   - DingSDK/Models/Components/DeviceType.cs
-  - DingSDK/Models/Components/ErrorResponse.cs
   - DingSDK/Models/Components/Events.cs
   - DingSDK/Models/Components/FeedbackRequest.cs
   - DingSDK/Models/Components/FeedbackRequestStatus.cs
@@ -66,6 +65,8 @@ generatedFiles:
   - DingSDK/Models/Components/Signals.cs
   - DingSDK/Models/Components/Status.cs
   - DingSDK/Models/Components/Type.cs
+  - DingSDK/Models/Errors/Code.cs
+  - DingSDK/Models/Errors/ErrorResponse.cs
   - DingSDK/Models/Errors/SDKException.cs
   - DingSDK/Models/Requests/CheckResponse.cs
   - DingSDK/Models/Requests/CreateAuthenticationResponse.cs
@@ -108,14 +109,12 @@ generatedFiles:
   - docs/Models/Components/Capability.md
   - docs/Models/Components/Check.md
   - docs/Models/Components/CheckStatus.md
-  - docs/Models/Components/Code.md
   - docs/Models/Components/CreateAuthenticationRequest.md
   - docs/Models/Components/CreateAuthenticationResponse.md
   - docs/Models/Components/CreateCheckRequest.md
   - docs/Models/Components/CreateCheckResponse.md
   - docs/Models/Components/DeliveryStatus.md
   - docs/Models/Components/DeviceType.md
-  - docs/Models/Components/ErrorResponse.md
   - docs/Models/Components/Events.md
   - docs/Models/Components/FeedbackRequest.md
   - docs/Models/Components/FeedbackRequestStatus.md
@@ -129,6 +128,8 @@ generatedFiles:
   - docs/Models/Components/Signals.md
   - docs/Models/Components/Status.md
   - docs/Models/Components/Type.md
+  - docs/Models/Errors/Code.md
+  - docs/Models/Errors/ErrorResponse.md
   - docs/Models/Requests/CheckResponse.md
   - docs/Models/Requests/CreateAuthenticationResponse.md
   - docs/Models/Requests/FeedbackResponse.md
@@ -151,12 +152,17 @@ examples:
           application/json: {"status": "valid"}
         default:
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
   create-authentication:
     speakeasy-default-create-authentication:
       requestBody:
         application/json: {"customer_uuid": "cf2edc1c-7fc6-48fb-86da-b7508c6b7b71", "locale": "fr-FR", "phone_number": "+1234567890"}
       responses:
         default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        "200": {}
+        "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
   feedback:
     speakeasy-default-feedback:
@@ -166,6 +172,8 @@ examples:
         "200":
           application/json: {"uuid": "123e4567-e89b-12d3-a456-4266141740a0"}
         default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
   getAuthenticationStatus:
     speakeasy-default-get-authentication-status:
@@ -177,12 +185,16 @@ examples:
           application/json: {"events": [], "phone_number": "+1234567890"}
         default:
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        "400":
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
   retry:
     speakeasy-default-retry:
       responses:
         "200":
           application/json: {"remaining_retry": 3, "status": "approved"}
         default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
   lookup:
     speakeasy-default-lookup:
@@ -195,4 +207,6 @@ examples:
         "200":
           application/json: {"carrier": "AT&T", "country_code": "US", "line_type": "Mobile", "mcc": "310", "mnc": "410", "phone_number": "+1234567890"}
         default:
+          application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+        "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}

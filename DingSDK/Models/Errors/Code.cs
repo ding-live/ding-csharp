@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace DingSDK.Models.Components
+namespace DingSDK.Models.Errors
 {
     using DingSDK.Utils;
     using Newtonsoft.Json;

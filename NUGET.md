@@ -157,9 +157,10 @@ By default, an API error will raise a `DingSDK.Models.Errors.SDKException` excep
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `CheckAsync` method throws the following exceptions:
 
-| Error Type                         | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| DingSDK.Models.Errors.SDKException | 4XX, 5XX                           | \*/\*                              |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
+| DingSDK.Models.Errors.SDKException  | 4XX, 5XX                            | \*/\*                               |
 
 ### Example
 
@@ -187,7 +188,12 @@ try
 }
 catch (Exception ex)
 {
-    if (ex is DingSDK.Models.Errors.SDKException)
+    if (ex is ErrorResponse)
+    {
+        // Handle exception data
+        throw;
+    }
+    else if (ex is DingSDK.Models.Errors.SDKException)
     {
         // Handle default exception
         throw;

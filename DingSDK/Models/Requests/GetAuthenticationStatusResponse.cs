@@ -28,11 +28,6 @@ namespace DingSDK.Models.Requests
         public string? ContentType { get; set; } = default!;
 
         /// <summary>
-        /// Bad Request
-        /// </summary>
-        public ErrorResponse? ErrorResponse { get; set; }
-
-        /// <summary>
         /// HTTP response status code for this operation
         /// </summary>
         public int StatusCode { get; set; } = default!;

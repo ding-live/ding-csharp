@@ -45,6 +45,7 @@ var res = await sdk.Lookup.LookupAsync(
 
 ### Errors
 
-| Error Type                         | Status Code                        | Content Type                       |
-| ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| DingSDK.Models.Errors.SDKException | 4XX, 5XX                           | \*/\*                              |
+| Error Type                          | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
+| DingSDK.Models.Errors.SDKException  | 4XX, 5XX                            | \*/\*                               |

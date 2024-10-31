@@ -7,13 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #nullable enable
-namespace DingSDK.Models.Components
+namespace DingSDK.Models.Errors
 {
-    using DingSDK.Models.Components;
+    using DingSDK.Models.Errors;
     using DingSDK.Utils;
     using Newtonsoft.Json;
+    using System;
     
-    public class ErrorResponse
+    public class ErrorResponse : Exception
     {
 
         /// <summary>
@@ -32,6 +33,7 @@ namespace DingSDK.Models.Components
         /// A human-readable message that describes the error.
         /// </summary>
         [JsonProperty("message")]
-        public string? Message { get; set; }
+        private string? _message { get; set; }
+        public override string Message { get {return _message ?? "";} }
     }
 }

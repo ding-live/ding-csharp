@@ -41,10 +41,10 @@ namespace DingSDK
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.18.0";
-        private const string _sdkGenVersion = "2.442.11";
+        private const string _sdkVersion = "0.19.0";
+        private const string _sdkGenVersion = "2.445.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.18.0 2.442.11 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.19.0 2.445.1 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<DingSDK.Models.Components.Security>? _securitySource;
@@ -86,7 +86,7 @@ namespace DingSDK
                 httpResponse = await _client.SendAsync(httpRequest);
                 int _statusCode = (int)httpResponse.StatusCode;
 
-                if (_statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
+                if (_statusCode == 400 || _statusCode >= 400 && _statusCode < 500 || _statusCode >= 500 && _statusCode < 600)
                 {
                     var _httpResponse = await this.SDKConfiguration.Hooks.AfterErrorAsync(new AfterErrorContext(hookCtx), httpResponse, null);
                     if (_httpResponse != null)
@@ -129,27 +129,22 @@ namespace DingSDK
 
                 throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
-            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
-            {
-                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
-            }
-            else
+            else if(responseStatusCode == 400)
             {
                 if(Utilities.IsContentTypeMatch("application/json", contentType))
                 {
                     var obj = ResponseBodyDeserializer.Deserialize<ErrorResponse>(await httpResponse.Content.ReadAsStringAsync(), NullValueHandling.Ignore);
-                    var response = new Models.Requests.LookupResponse()
-                    {
-                        StatusCode = responseStatusCode,
-                        ContentType = contentType,
-                        RawResponse = httpResponse
-                    };
-                    response.ErrorResponse = obj;
-                    return response;
+                    throw obj!;
                 }
 
                 throw new Models.Errors.SDKException("Unknown content type received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
             }
+            else if(responseStatusCode >= 400 && responseStatusCode < 500 || responseStatusCode >= 500 && responseStatusCode < 600)
+            {
+                throw new Models.Errors.SDKException("API error occurred", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
+            }
+
+            throw new Models.Errors.SDKException("Unknown status code received", responseStatusCode, await httpResponse.Content.ReadAsStringAsync(), httpResponse);
         }
     }
 }
