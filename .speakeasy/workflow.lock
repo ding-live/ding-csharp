@@ -1,8 +1,8 @@
-speakeasyVersion: 1.424.0
+speakeasyVersion: 1.426.0
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:48c010d29e1a33358458d003508be17bac56370de745baad9477e4c2d0c65574
+        sourceRevisionDigest: sha256:8b3de3c9e2d9467fabfe849fc7b77cb28581fa409705f9dbe954c701fa54cd61
         sourceBlobDigest: sha256:323bc59bcca5ee8f29fae0166ebe1eca5b054a01c0d1339e7d698ed6ca59e11e
         tags:
             - latest
@@ -11,10 +11,10 @@ targets:
     DingSDK:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:48c010d29e1a33358458d003508be17bac56370de745baad9477e4c2d0c65574
+        sourceRevisionDigest: sha256:8b3de3c9e2d9467fabfe849fc7b77cb28581fa409705f9dbe954c701fa54cd61
         sourceBlobDigest: sha256:323bc59bcca5ee8f29fae0166ebe1eca5b054a01c0d1339e7d698ed6ca59e11e
         codeSamplesNamespace: my-source-code-samples
-        codeSamplesRevisionDigest: sha256:8cb14f2f57619da02a1f0d0c68798cfd1253a6d3e65a379f7c8745c02579152c
+        codeSamplesRevisionDigest: sha256:bed2cbc42049a4a3985905daf7b3a15d6a2db2c3f24fdf06c95d9e336d7d1c31
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
