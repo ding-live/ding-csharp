@@ -9,8 +9,9 @@ generation:
     requestResponseComponentNamesFeb2024: false
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
 csharp:
-  version: 0.19.5
+  version: 0.19.6
   additionalDependencies: []
   author: Ding
   clientServerStatusCodesAsErrors: true
