@@ -204,20 +204,30 @@ var res = await sdk.Lookup.LookupAsync(
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIndex: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.ding.live/v1` | None |
-
-
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverUrl: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `serverUrl: string` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using DingSDK;
+using DingSDK.Models.Components;
+
+var sdk = new Ding(
+    serverUrl: "https://api.ding.live/v1",
+    security: new Security() {
+        APIKey = "YOUR_API_KEY",
+    }
+);
+
+CreateCheckRequest req = new CreateCheckRequest() {
+    AuthenticationUuid = "eebe792b-2fcc-44a0-87f1-650e79259e02",
+    CheckCode = "123456",
+    CustomerUuid = "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
+};
+
+var res = await sdk.Otp.CheckAsync(req);
+
+// handle response
+```
 <!-- End Server Selection [server] -->
 
 <!-- Start Authentication [security] -->
@@ -227,9 +237,9 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 This SDK supports the following security scheme globally:
 
-| Name     | Type     | Scheme   |
-| -------- | -------- | -------- |
-| `APIKey` | apiKey   | API key  |
+| Name     | Type   | Scheme  |
+| -------- | ------ | ------- |
+| `APIKey` | apiKey | API key |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
 ```csharp
@@ -268,10 +278,10 @@ By default, an API error will raise a `DingSDK.Models.Errors.SDKException` excep
 
 When custom error responses are specified for an operation, the SDK may also throw their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `CheckAsync` method throws the following exceptions:
 
-| Error Type                          | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| DingSDK.Models.Errors.ErrorResponse | 400                                 | application/json                    |
-| DingSDK.Models.Errors.SDKException  | 4XX, 5XX                            | \*/\*                               |
+| Error Type                          | Status Code | Content Type     |
+| ----------------------------------- | ----------- | ---------------- |
+| DingSDK.Models.Errors.ErrorResponse | 400         | application/json |
+| DingSDK.Models.Errors.SDKException  | 4XX, 5XX    | \*/\*            |
 
 ### Example
 

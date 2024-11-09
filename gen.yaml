@@ -11,11 +11,12 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 csharp:
-  version: 0.19.8
+  version: 0.19.9
   additionalDependencies: []
   author: Ding
   clientServerStatusCodesAsErrors: true
   company: ""
+  defaultErrorName: SDKException
   disableNamespacePascalCasingApr2024: false
   dotnetVersion: net5.0
   enableSourceLink: false
