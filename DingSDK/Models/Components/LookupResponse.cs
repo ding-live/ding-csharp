@@ -80,5 +80,11 @@ namespace DingSDK.Models.Components
         /// </summary>
         [JsonProperty("phone_number")]
         public string? PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Whether the phone number is in our database of disposable, temporary phone numbers
+        /// </summary>
+        [JsonProperty("temporary_phone_number")]
+        public bool? TemporaryPhoneNumber { get; set; }
     }
 }
