@@ -18,10 +18,14 @@ namespace DingSDK.Models.Components
     /// </summary>
     public enum AuthenticationStatusResponseDeviceType
     {
-        [JsonProperty("IOS")]
-        Ios,
         [JsonProperty("ANDROID")]
         Android,
+        [JsonProperty("IOS")]
+        Ios,
+        [JsonProperty("IPADOS")]
+        Ipados,
+        [JsonProperty("TVOS")]
+        Tvos,
         [JsonProperty("WEB")]
         Web,
     }

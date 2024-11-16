@@ -7,6 +7,8 @@ The type of device the user is using.
 
 | Name      | Value     |
 | --------- | --------- |
-| `Ios`     | IOS       |
 | `Android` | ANDROID   |
+| `Ios`     | IOS       |
+| `Ipados`  | IPADOS    |
+| `Tvos`    | TVOS      |
 | `Web`     | WEB       |
