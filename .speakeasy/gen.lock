@@ -3,17 +3,17 @@ id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
   docChecksum: 9fbd6321083c0c2d44365ff84b8e2cb8
   docVersion: 1.0.0
-  speakeasyVersion: 1.444.3
-  generationVersion: 2.461.4
-  releaseVersion: 0.19.24
-  configChecksum: e3d4c0c0d7e20a37805ca582db916085
+  speakeasyVersion: 1.446.0
+  generationVersion: 2.462.0
+  releaseVersion: 0.19.25
+  configChecksum: f84be97cd64d6e127807353e7442de0d
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
     additionalDependencies: 0.1.0
-    core: 3.10.5
+    core: 3.10.6
     examples: 2.81.3
     flattening: 2.81.3
     globalSecurity: 2.83.6
@@ -210,3 +210,4 @@ examples:
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
         "400":
           application/json: {"code": "invalid_phone_number", "doc_url": "https://docs.prelude.so/api-reference/errors#invalid_phone_number", "message": "+0 is not a valid phone number"}
+generatedTests: {}
