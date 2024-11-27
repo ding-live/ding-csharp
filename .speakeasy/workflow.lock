@@ -1,21 +1,21 @@
-speakeasyVersion: 1.446.0
+speakeasyVersion: 1.448.0
 sources:
     my-source:
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:460fdbe8d0503889fc16bcf6914743c00b0735ee39a9e13300fa890381d41532
+        sourceRevisionDigest: sha256:1bea3a1cf05950937687e16519fb3c569de9189321cc20321934da76a5d9810c
         sourceBlobDigest: sha256:4d3dd890b21d2c069d944869e00ea2505c58a172c1b06fa3cb7b59c56c21a500
         tags:
             - latest
-            - speakeasy-sdk-regen-1732580555
+            - speakeasy-sdk-regen-1732666951
             - 1.0.0
 targets:
     DingSDK:
         source: my-source
         sourceNamespace: my-source
-        sourceRevisionDigest: sha256:460fdbe8d0503889fc16bcf6914743c00b0735ee39a9e13300fa890381d41532
+        sourceRevisionDigest: sha256:1bea3a1cf05950937687e16519fb3c569de9189321cc20321934da76a5d9810c
         sourceBlobDigest: sha256:4d3dd890b21d2c069d944869e00ea2505c58a172c1b06fa3cb7b59c56c21a500
-        codeSamplesNamespace: my-source-code-samples
-        codeSamplesRevisionDigest: sha256:266ec6539a4b11149229a90bdb8a84fa784f43ef129031818c5271c08374f844
+        codeSamplesNamespace: my-source-csharp-code-samples
+        codeSamplesRevisionDigest: sha256:0c849d83833bec4f3d361411a3505fd88d4b8cf462d692647ee88645e36f6d00
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -34,5 +34,5 @@ workflow:
                     apiKey: $NUGET_API_KEY
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/ding/ding/my-source-code-samples
+                    location: registry.speakeasyapi.dev/ding/ding/my-source-csharp-code-samples
                 blocking: false

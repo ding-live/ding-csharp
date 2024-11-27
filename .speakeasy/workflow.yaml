@@ -15,5 +15,5 @@ targets:
                 apiKey: $NUGET_API_KEY
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/ding/ding/my-source-code-samples
+                location: registry.speakeasyapi.dev/ding/ding/my-source-csharp-code-samples
             blocking: false
