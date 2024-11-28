@@ -141,6 +141,38 @@ var res = await sdk.Lookup.LookupAsync(
 ```
 <!-- End SDK Example Usage [usage] -->
 
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name     | Type   | Scheme  |
+| -------- | ------ | ------- |
+| `APIKey` | apiKey | API key |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```csharp
+using DingSDK;
+using DingSDK.Models.Components;
+
+var sdk = new Ding(security: new Security() {
+    APIKey = "YOUR_API_KEY",
+});
+
+CreateCheckRequest req = new CreateCheckRequest() {
+    AuthenticationUuid = "eebe792b-2fcc-44a0-87f1-650e79259e02",
+    CheckCode = "123456",
+    CustomerUuid = "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
+};
+
+var res = await sdk.Otp.CheckAsync(req);
+
+// handle response
+```
+<!-- End Authentication [security] -->
+
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
@@ -230,37 +262,5 @@ var res = await sdk.Otp.CheckAsync(req);
 // handle response
 ```
 <!-- End Server Selection [server] -->
-
-<!-- Start Authentication [security] -->
-## Authentication
-
-### Per-Client Security Schemes
-
-This SDK supports the following security scheme globally:
-
-| Name     | Type   | Scheme  |
-| -------- | ------ | ------- |
-| `APIKey` | apiKey | API key |
-
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
-```csharp
-using DingSDK;
-using DingSDK.Models.Components;
-
-var sdk = new Ding(security: new Security() {
-    APIKey = "YOUR_API_KEY",
-});
-
-CreateCheckRequest req = new CreateCheckRequest() {
-    AuthenticationUuid = "eebe792b-2fcc-44a0-87f1-650e79259e02",
-    CheckCode = "123456",
-    CustomerUuid = "64f66a7c-4b2c-4131-a8ff-d5b954cca05f",
-};
-
-var res = await sdk.Otp.CheckAsync(req);
-
-// handle response
-```
-<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
