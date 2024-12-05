@@ -3,10 +3,10 @@ id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
   docChecksum: 9fbd6321083c0c2d44365ff84b8e2cb8
   docVersion: 1.0.0
-  speakeasyVersion: 1.451.1
-  generationVersion: 2.470.1
-  releaseVersion: 0.19.33
-  configChecksum: 02d5c5f7eb239cc5634dc1637e6927cb
+  speakeasyVersion: 1.451.5
+  generationVersion: 2.471.2
+  releaseVersion: 0.19.34
+  configChecksum: 797ba675a1e6c9e490bc35d7088764f2
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
