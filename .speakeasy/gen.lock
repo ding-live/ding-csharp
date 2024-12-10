@@ -3,17 +3,17 @@ id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
   docChecksum: 9fbd6321083c0c2d44365ff84b8e2cb8
   docVersion: 1.0.0
-  speakeasyVersion: 1.453.4
-  generationVersion: 2.474.6
-  releaseVersion: 0.19.38
-  configChecksum: 9b9a85fd42818e8ae78cc01ddd81cb50
+  speakeasyVersion: 1.453.8
+  generationVersion: 2.474.15
+  releaseVersion: 0.19.39
+  configChecksum: c3f9d79d63560c81f4f342066e0bd2eb
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
 features:
   csharp:
     additionalDependencies: 0.1.0
-    core: 3.10.6
+    core: 3.10.7
     examples: 2.81.3
     flattening: 2.81.3
     globalSecurity: 2.83.6
