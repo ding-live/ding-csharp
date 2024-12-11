@@ -17,6 +17,12 @@ namespace DingSDK.Models.Components
     {
 
         /// <summary>
+        /// The CNAM (Caller ID Name) associated with the phone number. Contact us if you need to use this functionality. Once enabled, put `cnam` option to `type` query parameter.
+        /// </summary>
+        [JsonProperty("caller_name")]
+        public string? CallerName { get; set; }
+
+        /// <summary>
         /// The carrier of the phone number.
         /// </summary>
         [JsonProperty("carrier")]

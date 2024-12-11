@@ -18,6 +18,7 @@ Look up for phone number
 ```csharp
 using DingSDK;
 using DingSDK.Models.Requests;
+using System.Collections.Generic;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
@@ -26,7 +27,10 @@ var sdk = new Ding(security: new Security() {
 
 var res = await sdk.Lookup.LookupAsync(
     customerUuid: "69a197d9-356c-45d1-a807-41874e16b555",
-    phoneNumber: "<value>"
+    phoneNumber: "<value>",
+    type: new List<DingSDK.Models.Requests.Type>() {
+        DingSDK.Models.Requests.Type.Cnam,
+    }
 );
 
 // handle response
@@ -34,10 +38,11 @@ var res = await sdk.Lookup.LookupAsync(
 
 ### Parameters
 
-| Parameter          | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `CustomerUuid`     | *string*           | :heavy_check_mark: | N/A                |
-| `PhoneNumber`      | *string*           | :heavy_check_mark: | N/A                |
+| Parameter                                                   | Type                                                        | Required                                                    | Description                                                 |
+| ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
+| `CustomerUuid`                                              | *string*                                                    | :heavy_check_mark:                                          | N/A                                                         |
+| `PhoneNumber`                                               | *string*                                                    | :heavy_check_mark:                                          | N/A                                                         |
+| `Type`                                                      | List<[Models.Requests.Type](../../Models/Requests/Type.md)> | :heavy_minus_sign:                                          | N/A                                                         |
 
 ### Response
 

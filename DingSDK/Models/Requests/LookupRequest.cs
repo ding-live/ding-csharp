@@ -9,7 +9,9 @@
 #nullable enable
 namespace DingSDK.Models.Requests
 {
+    using DingSDK.Models.Requests;
     using DingSDK.Utils;
+    using System.Collections.Generic;
     
     public class LookupRequest
     {
@@ -19,5 +21,8 @@ namespace DingSDK.Models.Requests
 
         [SpeakeasyMetadata("pathParam:style=simple,explode=false,name=phone_number")]
         public string PhoneNumber { get; set; } = default!;
+
+        [SpeakeasyMetadata("queryParam:style=form,explode=true,name=type")]
+        public List<DingSDK.Models.Requests.Type>? Type { get; set; }
     }
 }

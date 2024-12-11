@@ -126,6 +126,7 @@ Perform a phone number lookup.
 ```csharp
 using DingSDK;
 using DingSDK.Models.Requests;
+using System.Collections.Generic;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
@@ -134,7 +135,10 @@ var sdk = new Ding(security: new Security() {
 
 var res = await sdk.Lookup.LookupAsync(
     customerUuid: "69a197d9-356c-45d1-a807-41874e16b555",
-    phoneNumber: "<value>"
+    phoneNumber: "<value>",
+    type: new List<DingSDK.Models.Requests.Type>() {
+        DingSDK.Models.Requests.Type.Cnam,
+    }
 );
 
 // handle response

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 76b4d38c-5441-40d8-8002-c456a3ea1652
 management:
-  docChecksum: 9fbd6321083c0c2d44365ff84b8e2cb8
+  docChecksum: 7b0a21df5c4526c3e13357d16d9397df
   docVersion: 1.0.0
-  speakeasyVersion: 1.453.8
+  speakeasyVersion: 1.453.10
   generationVersion: 2.474.15
-  releaseVersion: 0.19.39
-  configChecksum: c3f9d79d63560c81f4f342066e0bd2eb
+  releaseVersion: 0.19.40
+  configChecksum: 15a2101dcb1ac57b21ef99744782a66f
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true
@@ -76,6 +76,7 @@ generatedFiles:
   - DingSDK/Models/Requests/LookupRequest.cs
   - DingSDK/Models/Requests/LookupResponse.cs
   - DingSDK/Models/Requests/RetryResponse.cs
+  - DingSDK/Models/Requests/Type.cs
   - DingSDK/Otp.cs
   - DingSDK/Utils/AnyDeserializer.cs
   - DingSDK/Utils/BigIntStrConverter.cs
@@ -138,6 +139,7 @@ generatedFiles:
   - docs/Models/Requests/LookupRequest.md
   - docs/Models/Requests/LookupResponse.md
   - docs/Models/Requests/RetryResponse.md
+  - docs/Models/Requests/Type.md
   - docs/sdks/ding/README.md
   - docs/sdks/lookup/README.md
   - docs/sdks/otp/README.md
@@ -201,6 +203,7 @@ examples:
       parameters:
         path:
           phone_number: "<value>"
+        query: {}
         header:
           customer-uuid: "69a197d9-356c-45d1-a807-41874e16b555"
       responses:
