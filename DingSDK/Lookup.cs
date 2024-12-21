@@ -13,14 +13,14 @@ namespace DingSDK
     using DingSDK.Models.Components;
     using DingSDK.Models.Errors;
     using DingSDK.Models.Requests;
-    using DingSDK.Utils.Retries;
     using DingSDK.Utils;
+    using DingSDK.Utils.Retries;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Net.Http.Headers;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Retrieve up-to-date metadata about a specific phone number
@@ -41,10 +41,10 @@ namespace DingSDK
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.19.49";
-        private const string _sdkGenVersion = "2.481.0";
+        private const string _sdkVersion = "0.19.50";
+        private const string _sdkGenVersion = "2.483.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.19.49 2.481.0 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.19.50 2.483.1 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<DingSDK.Models.Components.Security>? _securitySource;

@@ -11,12 +11,12 @@ namespace DingSDK.Models.Components
 {
     using DingSDK.Models.Components;
     using DingSDK.Utils;
-    using Newtonsoft.Json.Linq;
     using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using System;
     using System.Collections.Generic;
     using System.Numerics;
     using System.Reflection;
-    using System;
     
 
     public class EventsType

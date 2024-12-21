@@ -91,7 +91,7 @@ var sdk = new Ding(security: new Security() {
 FeedbackRequest req = new FeedbackRequest() {
     CustomerUuid = "cc0f6c04-40de-448f-8301-3cb0e6565dff",
     PhoneNumber = "+1234567890",
-    Status = DingSDK.Models.Components.FeedbackRequestStatus.Onboarded,
+    Status = FeedbackRequestStatus.Onboarded,
 };
 
 var res = await sdk.Otp.FeedbackAsync(req);
@@ -106,7 +106,6 @@ Get the status of an authentication.
 
 ```csharp
 using DingSDK;
-using DingSDK.Models.Requests;
 using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
@@ -125,9 +124,9 @@ Perform a phone number lookup.
 
 ```csharp
 using DingSDK;
+using DingSDK.Models.Components;
 using DingSDK.Models.Requests;
 using System.Collections.Generic;
-using DingSDK.Models.Components;
 
 var sdk = new Ding(security: new Security() {
     APIKey = "YOUR_API_KEY",
@@ -203,7 +202,6 @@ When custom error responses are specified for an operation, the SDK may also thr
 ```csharp
 using DingSDK;
 using DingSDK.Models.Components;
-using System;
 using DingSDK.Models.Errors;
 
 var sdk = new Ding(security: new Security() {

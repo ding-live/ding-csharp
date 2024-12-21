@@ -12,8 +12,8 @@ namespace DingSDK.Models.Components
     using DingSDK.Models.Components;
     using DingSDK.Utils;
     using Newtonsoft.Json;
-    using System.Collections.Generic;
     using System;
+    using System.Collections.Generic;
     
     public class AuthenticationStatusResponse
     {
