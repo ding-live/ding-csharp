@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.460.3
   generationVersion: 2.484.0
-  releaseVersion: 0.19.60
-  configChecksum: 1d54c5f426f6c4a23fb7d8c7779d6fc2
+  releaseVersion: 0.19.61
+  configChecksum: b1260e4b6270c63d475d06394626aac9
   repoURL: https://github.com/ding-live/ding-csharp.git
   repoSubDirectory: .
   published: true

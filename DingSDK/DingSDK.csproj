@@ -3,10 +3,10 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>DingSDK</PackageId>
-    <Version>0.19.60</Version>
+    <Version>0.19.61</Version>
     <TargetFramework>net5.0</TargetFramework>
     <Authors>Ding</Authors>
-    <Copyright>Copyright (c) Ding 2024</Copyright>
+    <Copyright>Copyright (c) Ding 2025</Copyright>
     <RepositoryUrl>https://github.com/ding-live/ding-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>Ding: The OTP API allows you to send authentication codes to your users using their phone numbers.</Description>
