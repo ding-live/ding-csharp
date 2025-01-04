@@ -61,10 +61,10 @@ namespace DingSDK
     {
         public SDKConfig SDKConfiguration { get; private set; }
         private const string _language = "csharp";
-        private const string _sdkVersion = "0.19.63";
-        private const string _sdkGenVersion = "2.484.0";
+        private const string _sdkVersion = "0.19.64";
+        private const string _sdkGenVersion = "2.486.1";
         private const string _openapiDocVersion = "1.0.0";
-        private const string _userAgent = "speakeasy-sdk/csharp 0.19.63 2.484.0 1.0.0 DingSDK";
+        private const string _userAgent = "speakeasy-sdk/csharp 0.19.64 2.486.1 1.0.0 DingSDK";
         private string _serverUrl = "";
         private ISpeakeasyHttpClient _client;
         private Func<DingSDK.Models.Components.Security>? _securitySource;

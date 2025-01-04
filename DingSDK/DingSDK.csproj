@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <PackageId>DingSDK</PackageId>
-    <Version>0.19.63</Version>
+    <Version>0.19.64</Version>
     <TargetFramework>net5.0</TargetFramework>
     <Authors>Ding</Authors>
     <Copyright>Copyright (c) Ding 2025</Copyright>
