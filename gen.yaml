@@ -11,7 +11,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 csharp:
-  version: 0.19.68
+  version: 0.20.0
   additionalDependencies: []
   author: Ding
   clientServerStatusCodesAsErrors: true
